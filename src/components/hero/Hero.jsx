@@ -67,9 +67,9 @@
 
 
 
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
-import styles from "./Hero.module.css";
+import styles from "./hero.module.css";
 
 const Hero = () => {
   const navigate = useNavigate();
