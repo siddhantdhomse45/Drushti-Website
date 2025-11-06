@@ -1,0 +1,132 @@
+.openButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: red;
+  border: none;
+  cursor: pointer;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Full height to cover the screen */
+  background: url("https://live.themewild.com/eduka/assets/img/slider/slider-3.jpg") no-repeat center center;
+  background-size: cover; /* Ensure the image covers the full background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above the navbar */
+  overflow: hidden;
+}
+
+.modalOverlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Darker semi-transparent black for better contrast */
+  z-index: 1; /* Ensure the color is on top of the image but below other content */
+}
+
+.modalOverlay > * {
+  position: relative;
+  z-index: 2; 
+}
+
+.modalContent {
+  background-color: rgba(255, 255, 255, 0.05); 
+  color: #333; /* Dark text color for readability */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); /* Soft shadow to make the content stand out */
+  max-height: 80vh; /* Adjust for modal height */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.closeButton {
+  float: right;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.table-container {
+  
+  max-height: 60vh; 
+  overflow-y: auto; /* Enable scrolling for the table */
+}
+
+
+h2 {
+  color: white; /* Darker heading text for visibility */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #fff; /* White border for visibility */
+  padding: 10px;
+  text-align: left;
+  color: #fff; /* White text color for the table */
+}
+
+.table th {
+  background-color: #c62828; /* Dark red background for the table header */
+  color: white; /* Ensure white text in the header */
+  padding: 10px;
+}
+
+.table td {
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+
+@media (max-width: 768px) {
+  /* Modal Content */
+  .modalContent {
+    padding: 15px; /* Reduced padding on smaller screens */
+    max-width: 90%; /* Limit width to 90% */
+  }
+
+  /* Close button */
+  .closeButton {
+    padding: 3px 8px; /* Smaller padding for close button */
+    font-size: 12px;
+  }
+
+  /* Table container */
+  .table-container {
+    max-height: 50vh; /* Adjust max height */
+  }
+
+  /* Table styles for mobile */
+  .table th, .table td {
+    padding: 8px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  /* Prevent horizontal scrolling by ensuring table fits within the viewport */
+  .table {
+    width: 100%;
+    table-layout: fixed; /* Prevent overflow */
+    word-wrap: break-word; /* Break long words */
+  }
+}

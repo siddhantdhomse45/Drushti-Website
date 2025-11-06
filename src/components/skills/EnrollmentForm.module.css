@@ -1,0 +1,327 @@
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    background-image: url('https://live.themewild.com/eduka/assets/img/counter/01.jpg');
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: center; /* Centers the image */
+    position: relative; /* Required for the pseudo-element to work */
+    min-height: 80vh;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    gap: 40px;
+    padding: 0 230px;
+    /* margin-top: 50px; */
+    height: 100vh;
+   
+}
+
+.container1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 39, 77, 0.8); /* Transparent overlay with opacity */
+    z-index: 1; /* Keeps the overlay behind the content */
+}
+
+.container1 > * {
+    position: relative;
+    z-index: 2; /* Ensures content stays above the overlay */
+}
+
+
+
+/* Left Section Styles */
+.leftSection {
+    background: #fff;
+    color: #333;
+ /* padding: 20px 30px; */
+    border-radius:  70px 70px 70px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 40%;
+    margin-top: 60px;
+    
+    
+}
+
+/* CSS for the enrollment header section */
+.head {
+    /* text-align: left; */
+    /* margin-bottom: 20px; */
+    background: var(--theme-color2);
+    border-radius: 50px 50px 50px 0;
+    padding: 20px 30px;
+    /* background: #fff; */
+    /* border-radius: 50px; */
+    /* box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); */
+   
+  }
+  
+  .head h3 {
+    color: white;
+    margin: 0px;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    line-height: 1;
+  }
+  
+  .head p {
+    color: white;
+    font-size: 14px;
+    /* margin-bottom: 20px; */
+    font-family: Arial, sans-serif;
+    /* line-height: 1.6; */
+  }
+  
+  form {
+    padding: 30px;
+    
+  }
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #f2f3f5;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 10px;
+    
+}
+
+.textarea {
+    resize: none;
+    height: 80px;
+    background-color: #f2f3f5;
+}
+
+.button {
+    background: #f5a623;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    
+}
+
+.button:hover {
+    background: #d48c1d;
+}
+
+/* Right Section Styles */
+.rightSection {
+    width: 55%;
+    text-align: left;
+    margin-top: 80px;
+}
+
+.rightSection h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.highlight {
+    color: #f5a623;
+}
+
+.rightSection p {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.progressBars {
+    margin-bottom: 30px;
+}
+
+.progress {
+    background: #ddd;
+    height: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    position: relative;
+}
+.progressFill1, .progressFill2, .progressFill3 {
+    background: #f5a623;
+    height: 100%;
+    border-radius: 5px;
+    width: 0%; /* Start with 0% width */
+    transition: width 3s ease-out; /* Smooth transition */
+}
+
+.progressBars label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #fff;
+}
+
+.progressText {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+/* Keyframes for progress fill animation (Optional if you want to use keyframes for a smoother transition) */
+@keyframes fillProgress1 {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 85%;
+    }
+}
+
+@keyframes fillProgress2 {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 65%;
+    }
+}
+
+@keyframes fillProgress3 {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 75%;
+    }
+}
+
+
+.button {
+    background: #f5a623;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 60px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #d48c1d;
+}
+
+@media (max-width: 768px) {
+
+    .container1 {
+        padding: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        min-height: auto;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leftSection,
+    .rightSection {
+        width: 100%;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    .leftSection {
+        margin-top: 30px;
+        border-radius: 20px; /* Adjust border radius for a more mobile-friendly look */
+    }
+
+    .rightSection {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    /* Header styles */
+    .head {
+        padding: 15px 20px;
+        background: var(--theme-color2);
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .head h3 {
+        font-size: 22px; /* Adjust font size for mobile */
+    }
+
+    .head p {
+        font-size: 12px; /* Smaller text for mobile */
+    }
+
+    /* Form input styles */
+    .input,
+    .textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .button {
+        padding: 12px 20px;
+        font-size: 14px;
+        border-radius: 40px;
+    }
+
+    .rightSection h2 {
+        font-size: 20px; /* Smaller heading font for mobile */
+    }
+
+    .progressBars label {
+        font-size: 12px; /* Smaller text for progress bars */
+    }
+
+    .progressText {
+        font-size: 12px;
+    }
+
+    .progressFill1, .progressFill2, .progressFill3 {
+        height: 8px; /* Smaller progress bars for mobile */
+    }
+
+    /* Adjust progress bar animation for mobile */
+    @keyframes fillProgress1 {
+        0% {
+            width: 0%;
+        }
+        100% {
+            width: 80%;
+        }
+    }
+
+    @keyframes fillProgress2 {
+        0% {
+            width: 0%;
+        }
+        100% {
+            width: 60%;
+        }
+    }
+
+    @keyframes fillProgress3 {
+        0% {
+            width: 0%;
+        }
+        100% {
+            width: 70%;
+        }
+    }
+}

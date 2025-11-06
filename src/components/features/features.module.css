@@ -1,0 +1,165 @@
+.featuresSection {
+  width: 100%;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f7f1 100%);
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0d2538;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.sectionSubtitle {
+  color: #475569;
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === CARD DESIGN === */
+.card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 22px;
+  padding: 45px 30px;
+  box-shadow: 0 10px 30px rgba(13, 37, 56, 0.1);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(13, 37, 56, 0.15);
+}
+
+/* Decorative glowing background */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(16, 157, 106, 0.15) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* === ICON === */
+.iconWrapper {
+  background: linear-gradient(145deg, #109d6a, #0d8055);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 25px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(16, 157, 106, 0.25);
+  transition: all 0.4s ease;
+}
+
+.card:hover .iconWrapper {
+  background: linear-gradient(145deg, #ffcc00, #ffb300);
+  transform: scale(1.1) rotate(6deg);
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+/* === TEXT === */
+.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0d2538;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.card:hover .title {
+  color: #109d6a;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 240px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .gridContainer {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuresSection {
+    padding: 70px 15px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 35px 20px;
+  }
+
+  .iconWrapper {
+    width: 75px;
+    height: 75px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    font-size: 1.15rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}

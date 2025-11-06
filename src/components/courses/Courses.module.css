@@ -1,0 +1,64 @@
+/* Courses Section */
+.courses {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.heading {
+  color: #fda31b;
+  font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    /* border-bottom: 2px solid var(--theme-color2); */
+   
+}
+
+.fa-book-open-reader:before, .fa-book-reader:before {
+  content: "\f5da";
+}
+
+
+.subtitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 40px;
+  
+}
+
+/* Proper Margin and Gap in the Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with minimum size */
+  justify-content: center;
+  align-items: start;
+  margin: 0 auto; /* Center align grid */
+  max-width: 1200px; 
+  padding: 0 20px; /* Add equal padding to both sides */
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* Stack items in a single column on mobile */
+    gap: 15px; /* Reduced gap between cards */
+    padding: 0 15px; /* Add smaller padding to avoid overflow */
+    margin: 0 auto; /* Center-align the grid */
+  }
+
+  .courses {
+    padding: 40px 15px; /* Adjust top and bottom padding for smaller screens */
+  }
+
+  .heading {
+    font-size: 26px; /* Slightly smaller font size for mobile */
+    margin-bottom: 8px; /* Adjust spacing between heading and subtitle */
+  }
+
+  .subtitle {
+    font-size: 12px; /* Smaller font size for mobile */
+    margin-bottom: 30px; /* Adjust spacing for smaller screens */
+  }
+}

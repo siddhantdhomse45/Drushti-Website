@@ -1,0 +1,328 @@
+
+.headingWrapper h2 {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+  font-weight: bold;
+}
+
+.headingWrapper h2 span {
+  color: #fda31b;
+  font-weight: bold;
+  
+}
+
+.headingWrapper strong {
+  color: #fda31b;
+  font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    border-bottom: 2px solid var(--theme-color2);
+    font-size: 18px;
+}
+
+.fa-book-open-reader:before, .fa-book-reader:before {
+  content: "\f5da";
+}
+
+
+
+.headingWrapper p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.services {
+ display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid  rgba(0, 0, 0, 0.08);
+  padding-bottom: 20px;
+
+
+ 
+}
+
+.service {
+  display: flex;
+  align-items: flex-start;
+  width: 250px;
+}
+
+.icon {
+  width: 150px; 
+  height: 150px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+}
+
+
+.icon img {
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; 
+}
+
+.service h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+.service p {
+  font-size: 14px;
+  color: #666;
+  margin:  0;
+}
+
+
+.stats {
+ 
+  width: 200px;
+  
+  background-color:rgb(17, 110, 99, 0.09);
+  padding: 80px 20px;
+
+  font-size: 14px;
+  color: #666;
+ 
+  margin-left: 280px;
+  position: absolute;
+  margin-top: 230px;
+  border-radius: 20px;
+  height: 250px;
+  
+}
+
+.stats p {
+  font: 14px;
+  text-align: justify;
+  
+}
+
+.statContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: auto;
+ 
+  font-size: 30px;
+  color: #116e63;
+  position: absolute;
+  margin-left: 50px;
+}
+
+.statContainer i {
+  font-size: 70px; 
+}
+
+.statContainer:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+
+
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 30px;
+ 
+}
+
+.discoverMore {
+  background-color: #fda31b;
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.callNow {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 20px;
+  
+}
+
+.callNow span {
+  color: #22a35f;
+  font-weight: bold;
+}
+
+/* Main Layout */
+/* .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 50px 230px;
+  margin-bottom: 100px;
+  
+  
+}
+
+.left {
+  flex: 1;
+  padding: 20px;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+ 
+} */
+
+
+.main {
+  display: flex; /* Ensures children are laid out horizontally */
+  gap: 20px; /* Space between .left and .right */
+  margin: 0 200px; /* Horizontal margin for the parent to create space on both sides */
+  align-items: stretch; /* Make both .left and .right containers stretch to the same height */
+}
+
+.left, .right {
+  flex: 0 0 45%; /* Each takes up 45% of the container's width */
+  padding: 20px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  height: auto; /* Ensures height adapts based on content, but will stretch to match .left */
+}
+
+.left {
+  padding: 20px;
+}
+
+  .right .service {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .right .service h3 {
+    font-size: 18px;
+    color: #fda31b;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .right .service p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .right .stat {
+    font-size: 14px;
+    color: #666;
+    background-color: #f4f4f4;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .right .stat .statNumber {
+    font-size: 2.5rem;
+    color: #22a35f;
+    font-weight: bold;
+  }
+
+  .right .callNow {
+    text-align: center;
+    padding: 10px;
+    background-color: #fda31b;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .main {
+      flex-direction: column; /* Stack the left and right sections vertically */
+      margin: 0 20px; /* Adjust margin for smaller screens */
+    }
+  
+    .left,
+    .right {
+      flex: 0 0 100%; /* Both sections should take full width on mobile */
+      padding: 10px; /* Reduce padding for mobile */
+    }
+  
+    .stats {
+      width: 100%; /* Make stats section full-width */
+      margin-left: 0;
+      position: relative;
+      margin-top: 20px;
+      height: auto;
+      padding: 40px 20px; /* Adjust padding */
+    }
+  
+    .statContainer {
+      width: 100%; /* Full width for statContainer */
+      margin-left: 0;
+      font-size: 50px; /* Reduce icon size */
+    }
+  
+    .icon {
+      width: 100px;
+      height: 100px; /* Reduce icon size */
+    }
+  
+    .service {
+      width: 100%; /* Make services full-width */
+      margin-bottom: 15px; /* Add some margin between service items */
+    }
+  
+    .service h3 {
+      font-size: 18px; /* Adjust font size for smaller screens */
+    }
+  
+    .service p {
+      font-size: 12px; /* Adjust font size for smaller screens */
+    }
+  
+    .actions {
+      flex-direction: column; /* Stack actions vertically on mobile */
+      align-items: center;
+      margin-top: 20px;
+    }
+  
+    .discoverMore {
+      margin-bottom: 10px; /* Space between buttons */
+    }
+  
+    .callNow {
+      margin-top: 10px;
+    }
+  }

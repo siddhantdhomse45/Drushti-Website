@@ -1,0 +1,138 @@
+.statsSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url('https://live.themewild.com/eduka/assets/img/counter/01.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+
+}
+
+.statsSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 110, 99, 0.6);
+    z-index: 1;
+}
+
+.statsSection>* {
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   width: 100%;
+    /* gap: 20px; */
+    /* overflow-x: auto; */
+    padding: 0 230px;
+    /* margin-left: 100px; */
+}
+
+.statCard {
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+
+}
+
+.iconWrapper {
+    margin-bottom: 15px;
+    background-color: #fda31b;
+    border-radius: 25px 25px 25px 0;
+    width: 100px;
+    height: 100px;
+    line-height: 88px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    font-size: 60px;
+   
+}
+
+.iconWrapper::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px 30px 30px 0;
+    border: 3px solid transparent; /* Initially, no visible border */
+    transition: border-color 0.6s ease, transform 0.6s ease; /* Smooth transition for border and scaling */
+    z-index: -1;
+    opacity: 0; /* Start with invisible pseudo-element */
+    transform: scale(0.8); /* Start with a slightly smaller scale */
+}
+
+.iconWrapper:hover::before {
+    border-color: white; /* Make the border visible on hover */
+    opacity: 1; /* Make the pseudo-element visible */
+    transform: scale(1); /* Scale it to normal size on hover */
+}
+
+.statImage {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.statNumber {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    /* margin: 10px 0; */
+}
+
+.statLabel {
+    font-size: 1rem;
+    color: #fff;
+    margin-right: 30px;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 0 20px;
+        align-items: center;
+    }
+
+    .statCard {
+        margin-left: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .iconWrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .statImage {
+        width: 30px;
+        height: 30px;
+    }
+
+    .statNumber {
+        font-size: 2rem;
+    }
+
+    .statLabel {
+        font-size: 0.9rem;
+        margin-right: 0;
+    }
+}

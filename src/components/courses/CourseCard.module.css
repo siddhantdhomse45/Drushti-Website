@@ -1,0 +1,157 @@
+.card {
+  width: 350px; 
+  background-color: #fff;
+  border-radius: 20px; 
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+  display: flex;
+  flex-direction: column;
+  margin: 20px; 
+}
+
+/* .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+} */
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image {
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px 40px 40px 0; 
+  margin-top: 13px;
+}
+
+.tag {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  background-color: #ff9800;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 40px 40px 40px 0;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 1;
+ 
+}
+
+
+.content {
+  padding: 20px;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.details span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #888;
+}
+
+.far.fa-clock {
+  color: #4caf50;
+  font-size: 16px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.price {
+  color: #4caf50;
+  font-size: 18px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #f39c12;
+  font-size: 16px;
+}
+
+.rating .star {
+  font-size: 14px;
+}
+
+/* Grid Layout for Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit with minimum size */
+  justify-content: center;
+  align-items: start;
+  gap: 30px; /* Adds space between the cards */
+  max-width: 1200px; /* Limits the overall grid width */
+  margin: 0 20px; /* Ensures equal margin on both sides */
+  padding: 0; /* Remove additional padding */
+}
+
+@media (max-width: 768px) {
+  /* Adjust grid layout for smaller screens */
+  .grid {
+    grid-template-columns: 1fr; /* Stack all cards in one column */
+    gap: 15px; /* Reduce gap for smaller screens */
+    margin: 0 15px; /* Add margin to avoid overflow */
+    padding: 0 15px; /* Add smaller padding to prevent overflow */
+  }
+
+  .card {
+    width: 100%; /* Make cards fill available space */
+    max-width: 100%; /* Ensure cards fill width on mobile */
+    margin: 10px 0; /* Reduced margin for mobile */
+  }
+
+  .imageWrapper {
+    height: 180px; /* Reduced height for image on mobile */
+  }
+
+  .heading {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
+
+  .subtitle {
+    font-size: 12px; /* Adjust subtitle size */
+  }
+}
