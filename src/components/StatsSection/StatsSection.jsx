@@ -52,7 +52,7 @@
 
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./StatsSection.module.css";
+import styles from "./statsSection.module.css";
 
 const StatsSection = () => {
   const stats = [
