@@ -169,6 +169,8 @@ function About() {
     { name: "CERTIFICATE COURSES", path: "/programs/certificate" },
     { name: "DIPLOMA ENGINEERING", path: "/programs/diploma-engineering" },
     { name: "P. G. DIPLOMA COURSES", path: "/programs/pg-diploma" },
+     { name: "SCHOOL PROGRAMS", path: "/programs/school" },
+      { name: "I.T.I COURSES", path: "/programs/iti" },
   ];
 
   return (

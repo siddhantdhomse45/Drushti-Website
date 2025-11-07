@@ -33,7 +33,7 @@
     width: 60px;
     /* Size of the play button */
     height: 60px;
-    background-color: orange;
+   background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
     /* Orange button background */
     border-radius: 50%;
     display: flex;
@@ -44,7 +44,7 @@
     /* Slight shadow */
     transition: transform 0.5s ease;
     /* overflow: hidden;  */
-    color: orange;
+    color: #0d6e46;
 }
 
 .playButton::after {

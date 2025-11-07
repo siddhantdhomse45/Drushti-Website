@@ -7,7 +7,7 @@
 }
 
 strong {
-  color: #fda31b;
+  color: #0d6e46;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 18px;
@@ -24,7 +24,7 @@ strong {
 }
 
 .highlight {
-  color: #f7931e;
+  color: #0d6e46;
 }
 
 .description {
@@ -69,13 +69,13 @@ strong {
   position: absolute;
   top: 20px;
   right: 25px;
-  color: #f7931e;
+ color: #0d6e46;
   font-size: 28px;
   opacity: 0.3;
 }
 
 .rating {
-  color: #ffb400;
+ color: #0d6e46;
   font-size: 18px;
   margin-bottom: 12px;
 }
@@ -98,7 +98,8 @@ strong {
   border-radius: 50%;
   width: 55px;
   height: 55px;
-  border: 2px solid #f7931e;
+  border: 2px solid #0d6e46;
+  
 }
 
 .name {
@@ -108,7 +109,7 @@ strong {
 }
 
 .role {
-  color: #f7931e;
+  color: #0d6e46;
   font-size: 14px;
   font-weight: 500;
 }

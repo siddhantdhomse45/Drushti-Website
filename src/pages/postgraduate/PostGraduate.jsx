@@ -15,6 +15,7 @@ const UnderGraduate = ({ onClose }) => {
               <th>Program</th>
               <th>Duration</th>
               <th>Eligibility</th>
+            
             </tr>
           </thead>
           <tbody>

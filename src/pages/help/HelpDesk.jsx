@@ -1,126 +1,159 @@
-import { useState } from 'react';
-import styles from './HelpDesk.module.css';
+import { useState } from "react";
+import { FaHeadset, FaTimes, FaSyncAlt } from "react-icons/fa";
+import styles from "./HelpDesk.module.css";
 
-const HelpDesk = () => {
+// eslint-disable-next-line react/prop-types
+const HelpDesk = ({ setIsHelpOpen }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [captcha, setCaptcha] = useState(generateCaptcha());
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    number: '',
-    message: ''
+    name: "",
+    number: "",
+    hoNumber: "",
+    comments: "",
+    captchaInput: "",
   });
 
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Captcha Generator
+  function generateCaptcha() {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    return Array.from({ length: 6 }, () =>
+      chars[Math.floor(Math.random() * chars.length)]
+    ).join("");
+  }
 
-  // Handle form input changes
+  const refreshCaptcha = () => setCaptcha(generateCaptcha());
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Form submission logic
-    setFormSubmitted(true);
-    setIsSubmitting(false);
-
-    // Reset form after submission
+    if (formData.captchaInput.trim().toUpperCase() !== captcha) {
+      alert("❌ Invalid captcha. Please try again!");
+      refreshCaptcha();
+      return;
+    }
+    alert("✅ Help Desk request submitted successfully!");
     setFormData({
-      name: '',
-      email: '',
-      number: '',
-      message: ''
+      name: "",
+      number: "",
+      hoNumber: "",
+      comments: "",
+      captchaInput: "",
     });
+    refreshCaptcha();
+    closePopup();
+  };
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setFormSubmitted(false);
-    }, 5000);
+  const openPopup = () => {
+    setIsOpen(true);
+    setIsHelpOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+    setIsHelpOpen(false);
   };
 
   return (
-    <div className={styles.contactFormWrapper}>
-      <h2 className={styles.title}>Get In Touch</h2>
-      {formSubmitted ? (
-        <div className={styles.successMessage}>
-          <p>🎉 Your message has been sent successfully! We&apos;ll get back to you soon.</p>
+    <>
+      {/* Floating Button */}
+      <button className={styles.floatingBtn} onClick={openPopup}>
+        <FaHeadset size={26} />
+      </button>
+
+      {/* Popup */}
+      {isOpen && (
+        <div className={styles.overlay}>
+          <div className={styles.popup}>
+            <div className={styles.header}>
+              <h2>
+                Help Desk <span>(Free Support)</span>
+              </h2>
+              <button className={styles.closeBtn} onClick={closePopup}>
+                <FaTimes size={22} />
+              </button>
+            </div>
+
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                required
+              />
+
+              <div className={styles.row}>
+                <div>
+                  <label>Number</label>
+                  <input
+                    type="text"
+                    name="number"
+                    value={formData.number}
+                    onChange={handleChange}
+                    placeholder="Enter number"
+                    required
+                  />
+                </div>
+                <div>
+                  <label>HO Number</label>
+                  <input
+                    type="text"
+                    name="hoNumber"
+                    value={formData.hoNumber}
+                    onChange={handleChange}
+                    placeholder="Enter HO number"
+                  />
+                </div>
+              </div>
+
+              <label>Comments / Questions</label>
+              <textarea
+                name="comments"
+                value={formData.comments}
+                onChange={handleChange}
+                placeholder="Write your message..."
+                required
+              ></textarea>
+
+              {/* Captcha Section */}
+              <div className={styles.captchaSection}>
+                <div className={styles.captchaBox}>
+                  <span className={styles.captchaText}>{captcha}</span>
+                  <button
+                    type="button"
+                    className={styles.refreshCaptcha}
+                    onClick={refreshCaptcha}
+                  >
+                    <FaSyncAlt />
+                  </button>
+                </div>
+              </div>
+
+              <label>Enter Captcha</label>
+              <input
+                type="text"
+                name="captchaInput"
+                value={formData.captchaInput}
+                onChange={handleChange}
+                placeholder="Enter the code above"
+                required
+              />
+
+              <button type="submit" className={styles.submitBtn}>
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
-      ) : (
-        <form onSubmit={handleSubmit} className={styles.contactForm}>
-          <div className={styles.formGroup}>
-            <label htmlFor="name">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={styles.inputField}
-              placeholder="Enter your full name"
-              required
-            />
-          </div>
-
-          <div className={styles.formGroup}>
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={styles.inputField}
-              placeholder="Enter your email address"
-              required
-            />
-          </div>
-
-          <div className={styles.formGroup}>
-            <label htmlFor="number">Contact Number</label>
-            <input
-              type="tel"
-              id="number"
-              name="number"
-              value={formData.number}
-              onChange={handleChange}
-              className={styles.inputField}
-              placeholder="Enter your phone number"
-              required
-            />
-          </div>
-
-          <div className={styles.formGroup}>
-            <label htmlFor="message">Your Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className={styles.textareaField}
-              placeholder="Tell us how we can help you..."
-              required
-            ></textarea>
-          </div>
-
-          <button 
-            type="submit" 
-            className={styles.submitButton}
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
       )}
-    </div>
+    </>
   );
 };
 

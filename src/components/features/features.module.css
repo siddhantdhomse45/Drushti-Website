@@ -27,7 +27,7 @@
   margin: 0 auto;
 }
 
-/* === CARD DESIGN === */
+
 .card {
   background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: 22px;
@@ -44,7 +44,7 @@
   box-shadow: 0 20px 45px rgba(13, 37, 56, 0.15);
 }
 
-/* Decorative glowing background */
+
 .card::before {
   content: "";
   position: absolute;
@@ -65,7 +65,7 @@
   opacity: 1;
 }
 
-/* === ICON === */
+
 .iconWrapper {
   background: linear-gradient(145deg, #109d6a, #0d8055);
   width: 90px;
@@ -90,7 +90,7 @@
   object-fit: contain;
 }
 
-/* === TEXT === */
+
 .title {
   font-size: 1.3rem;
   font-weight: 700;
@@ -111,7 +111,7 @@
   max-width: 240px;
 }
 
-/* === RESPONSIVE === */
+
 @media (max-width: 1024px) {
   .gridContainer {
     gap: 30px;

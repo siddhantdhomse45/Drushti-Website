@@ -307,7 +307,7 @@
 } */
 
 
-
+/* hero.module.css */
 
 .heroSection {
   position: relative;
@@ -318,6 +318,8 @@
   justify-content: center;
   overflow: hidden;
   margin-top: 85px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.3s forwards;
 }
 
 /* Background Image */
@@ -331,6 +333,7 @@
     center center / cover no-repeat;
   filter: blur(3px) brightness(0.9);
   z-index: 1;
+  animation: zoomIn 15s ease-in-out infinite alternate;
 }
 
 /* Foreground Content */
@@ -353,6 +356,9 @@
   max-width: 600px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(3px);
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 0.8s ease-out 0.5s forwards;
 }
 
 .heading {
@@ -360,6 +366,9 @@
   color: #222;
   font-weight: 700;
   margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
 }
 
 .subheading {
@@ -367,6 +376,9 @@
   color: #333;
   margin-bottom: 20px;
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 1s forwards;
 }
 
 .description {
@@ -375,11 +387,14 @@
   line-height: 1.8;
   margin-bottom: 35px;
   text-align: justify;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 1.2s forwards;
 }
 
-/* Red Button */
+/* Button with hover animation */
 .learnButton {
-  background-color: #e40046;
+  background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
   color: #fff;
   border: none;
   padding: 14px 32px;
@@ -389,11 +404,32 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 1.4s forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.learnButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.7s ease;
+}
+
+.learnButton:hover::before {
+  left: 100%;
 }
 
 .learnButton:hover {
-  background-color: #c8003a;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #03281c, #0a5c3a, #18c07a);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Right Image */
@@ -403,6 +439,9 @@
   align-items: flex-end;
   justify-content: center;
   height: 100%;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 0.8s ease-out 0.7s forwards;
 }
 
 .personImage {
@@ -411,6 +450,68 @@
   object-fit: contain;
   z-index: 3;
   transform: translateY(40px);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ANIMATION KEYFRAMES */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(40px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
 }
 
 /* RESPONSIVE DESIGN */
@@ -428,6 +529,13 @@
 
   .textBox {
     padding: 40px 30px;
+    transform: translateY(50px);
+    animation: slideInUp 0.8s ease-out 0.5s forwards;
+  }
+
+  .imageBox {
+    transform: translateY(50px);
+    animation: slideInUp 0.8s ease-out 0.7s forwards;
   }
 
   .heading {
@@ -441,6 +549,19 @@
   .personImage {
     width: 300px;
     transform: translateY(0);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Mobile-specific animation */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

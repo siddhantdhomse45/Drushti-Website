@@ -52,7 +52,7 @@
 .head {
     /* text-align: left; */
     /* margin-bottom: 20px; */
-    background: var(--theme-color2);
+   background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
     border-radius: 50px 50px 50px 0;
     padding: 20px 30px;
     /* background: #fff; */
@@ -102,7 +102,7 @@
 }
 
 .button {
-    background: #f5a623;
+    background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -116,7 +116,7 @@
 }
 
 .button:hover {
-    background: #d48c1d;
+   background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
 }
 
 /* Right Section Styles */
@@ -133,7 +133,7 @@
 }
 
 .highlight {
-    color: #f5a623;
+    color: #0d6e46;
 }
 
 .rightSection p {
@@ -153,7 +153,7 @@
     position: relative;
 }
 .progressFill1, .progressFill2, .progressFill3 {
-    background: #f5a623;
+   background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
     height: 100%;
     border-radius: 5px;
     width: 0%; /* Start with 0% width */
@@ -207,7 +207,7 @@
 
 
 .button {
-    background: #f5a623;
+    background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
     color: #fff;
     border: none;
     padding: 12px 25px;
@@ -218,7 +218,7 @@
 }
 
 .button:hover {
-    background: #d48c1d;
+     background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
 }
 
 @media (max-width: 768px) {
