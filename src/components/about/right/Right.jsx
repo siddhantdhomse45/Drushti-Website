@@ -30,7 +30,7 @@
 
 
 
-import styles from "./Right.module.css";
+import styles from "./right.module.css";
 
 function Right() {
   return (

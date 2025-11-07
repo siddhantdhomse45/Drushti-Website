@@ -84,7 +84,7 @@
 
 
 
-import styles from "./AboutUs.module.css";
+import styles from "./aboutUs.module.css";
 import Right from "./right/Right";
 
 const AboutUs = () => {
