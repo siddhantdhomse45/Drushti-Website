@@ -156,3 +156,18 @@ h2 {
     word-wrap: break-word;
   }
 }
+
+
+
+
+.downloadButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.downloadButton:hover {
+  background-color: #0056b3;
+}
