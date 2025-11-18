@@ -1,5 +1,5 @@
-
-import styles from "./features.module.css";
+import { useEffect } from "react";
+import styles from "./Features.module.css";
 
 const features = [
   {
@@ -53,12 +53,35 @@ const features = [
 ];
 
 const Features = () => {
+  // ⭐ Scroll Animation Effect
+  useEffect(() => {
+    const cards = document.querySelectorAll(`.${styles.card}`);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running"; // Start animation
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => {
+      card.style.animationPlayState = "paused"; // Pause animation initially
+      observer.observe(card);
+    });
+  }, []);
+
   return (
     <section className={styles.featuresSection}>
-      <h2 className={styles.sectionTitle}>Our Key Features</h2>
-      <p className={styles.sectionSubtitle}>
-        Discover what makes our institution stand out from the rest
-      </p>
+      <div className={styles.header}>
+        <h2 className={styles.sectionTitle}>Our Key Features</h2>
+        <p className={styles.sectionSubtitle}>
+          Discover what makes our institution stand out from the rest
+        </p>
+      </div>
 
       <div className={styles.gridContainer}>
         {features.map((feature) => (

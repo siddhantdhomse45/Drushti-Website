@@ -5,10 +5,9 @@
   left: 0;
   width: 100%;
   height: 85px;
-  background: rgba(9, 40, 31, 0.6);
+  background: rgba(255, 255, 255, 0.9); /* Light translucent background */
   backdrop-filter: blur(16px);
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,13 +15,14 @@
   transition: all 0.4s ease-in-out;
 }
 
+/* === SCROLLED NAVBAR === */
 .navbarScrolled {
   height: 70px;
-  background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #ffffff, #e9f7f2, #d9fff0);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
- 
+
 /* === CONTAINER === */
 .navContainer {
   max-width: 1300px;
@@ -34,23 +34,46 @@
 }
 
 /* === LOGO === */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoImage {
+  height: 130px;
+  width: 130px;
+  object-fit: contain;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Shrink logo on scroll */
+.navbarScrolled .logoImage {
+  height: 100px;
+}
+
+/* === LOGO TEXT (optional if you use text beside logo) === */
 .logoText {
   font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: 32px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #ffffff, #ffcf40, #00ffaa);
+  background: linear-gradient(90deg, #064831, #0d6e46, #1dd286);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 1px;
-  text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all 0.4s ease;
 }
 
 .logoText:hover {
   transform: scale(1.1);
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
 }
 
 /* === NAV LINKS === */
@@ -67,7 +90,7 @@
 }
 
 .navLinks a {
-  color: #fff;
+  color: #064831;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -85,29 +108,29 @@
   left: 50%;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, #ffcc00, #00ffaa);
+  background: linear-gradient(90deg, #0d6e46, #1dd286);
   border-radius: 3px;
   transform: translateX(-50%);
   transition: all 0.4s ease;
 }
 
 .navLinks a:hover {
-  color: #ffcc00;
+  color: #0d6e46;
   transform: translateY(-2px);
 }
 
 .navLinks a:hover::after {
   width: 100%;
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+  box-shadow: 0 0 15px rgba(13, 110, 70, 0.6);
 }
 
 /* === ACTIVE LINK HIGHLIGHT === */
 .activeLink a {
-  color: #ffcc00;
+  color: #0d6e46;
 }
 .activeLink a::after {
   width: 100%;
-  background: linear-gradient(90deg, #ffcc00, #00ffaa);
+  background: linear-gradient(90deg, #0d6e46, #1dd286);
 }
 
 /* === HAMBURGER MENU === */
@@ -125,7 +148,7 @@
 .bar {
   height: 3px;
   width: 100%;
-  background-color: #fff;
+  background-color: #064831;
   border-radius: 3px;
   transition: all 0.4s ease;
 }
@@ -150,14 +173,13 @@
   top: 80px;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, #064831, #13865b, #1de989);
-  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, #ffffff, #e8fff4);
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   padding: 30px 0;
   gap: 25px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   animation: slideDown 0.4s ease forwards;
 }
 
@@ -197,8 +219,12 @@
     top: 70px;
   }
 
+  .logoImage {
+    height: 60px;
+  }
+
   .logoText {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .navLinks a {

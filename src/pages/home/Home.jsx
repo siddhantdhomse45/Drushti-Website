@@ -4,11 +4,11 @@ import Courses from '../../components/courses/Courses'
 import Features from '../../components/features/Features'
 import AboutUs from '../../components/about/AboutUs'
 import StatsSection from '../../components/StatsSection/StatsSection'
-import Video from '../../components/video/Video'
-import EnrollmentForm from '../../components/skills/EnrollmentForm'
-import Department from '../../components/departments/Department'
+// import Video from '../../components/video/Video'
+// import EnrollmentForm from '../../components/skills/EnrollmentForm'
+// import Department from '../../components/departments/Department'
 import Testimonials from '../../components/testmonials/Testimonials'
-import LogoGrid from '../../components/logo/LogoGrid'
+// import LogoGrid from '../../components/logo/LogoGrid'
 
 function Home() {
     return (
@@ -18,11 +18,11 @@ function Home() {
             <AboutUs />
             <StatsSection />
             <Courses />
-            <Video />
-            <EnrollmentForm />
-            <Department />
+            {/* <Video /> */}
+            {/* <EnrollmentForm />
+            <Department /> */}
             <Testimonials />
-            <LogoGrid />
+            {/* <LogoGrid /> */}
         </div>
     )
 }

@@ -1,0 +1,121 @@
+/* === Enquiry Form - Modern Glassmorphism Theme === */
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe, #93c5fd);
+  padding: 20px;
+}
+
+/* === Card Styling === */
+.formCard {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 480px;
+  transition: all 0.3s ease;
+}
+
+.formCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* === Title === */
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 2px rgba(30, 58, 138, 0.2);
+}
+
+/* === Form Layout === */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+}
+
+/* === Inputs, Selects, Textareas === */
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 12px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.25s ease;
+  background: rgba(255, 255, 255, 0.65);
+  color: #0f172a;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #2563eb;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+  transform: scale(1.01);
+}
+
+/* === Submit Section === */
+.submitWrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.submitBtn {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(90deg, #1e40af, #2563eb);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* === Responsive Design === */
+@media (max-width: 600px) {
+  .formCard {
+    padding: 30px 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+}

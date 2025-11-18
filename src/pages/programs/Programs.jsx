@@ -56,7 +56,7 @@ const Programs = () => {
     { name: "MASTER OF TECHNOLOGY", path: "/programs/master" },
     { name: "DIPLOMA COURSES", path: "/programs/diplomacourse" },
     { name: "CERTIFICATE COURSES", path: "/programs/certificate" },
-    { name: "P. G. DIPLOMA COURSES", path: "/programs/pgdiploma" },
+    { name: "P. G. DIPLOMA COURSES", path: "/programs/pg-diploma" },
      { name: "SCHOOL PROGRAMS", path: "/programs/school" },
       { name: "I.T.I COURSES", path: "/programs/iti" },
   ];

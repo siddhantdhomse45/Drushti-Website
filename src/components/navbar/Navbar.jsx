@@ -88,6 +88,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./navbar.module.css";
+import logo from "../../assets/logo.png"; // Make sure logo.png exists here
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,41 +98,48 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  // Detect scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    { path: "/universities", label: "Universities" },
+    { path: "/programs", label: "Programs" },
+    // { path: "/result", label: "Result" },
+    { path: "/event", label: "Photo" },
+    // { path: "/enquiry", label: "Enquiry" },
+  ];
+
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ""}`}>
       <div className={styles.navContainer}>
-        {/* === LOGO === */}
+        {/* LOGO */}
         <div className={styles.logo}>
-          <Link to="/" onClick={closeMenu}>
-            <span className={styles.logoText}>Drushti</span>
+          <Link to="/" onClick={closeMenu} className={styles.logoLink}>
+            <img src={logo} alt="Drushti Logo" className={styles.logoImage} />
+           
           </Link>
         </div>
 
-        {/* === NAV LINKS === */}
+        {/* NAV LINKS */}
         <ul className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}>
-          {["/", "/about", "/universities", "/programs", "/result", "/photo"].map((path, i) => {
-            const labels = ["Home", "About Us", "Universities", "Programs", "Result", "Photo"];
+          {navItems.map(({ path, label }) => {
             const active = location.pathname === path;
             return (
               <li key={path} className={active ? styles.activeLink : ""}>
                 <Link to={path} onClick={closeMenu}>
-                  {labels[i]}
+                  {label}
                 </Link>
               </li>
             );
           })}
         </ul>
 
-        {/* === HAMBURGER MENU === */}
+        {/* HAMBURGER MENU */}
         <div
           className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
           onClick={toggleMenu}

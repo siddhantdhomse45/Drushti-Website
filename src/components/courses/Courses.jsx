@@ -1,94 +1,97 @@
-import React from "react";
+import  { useEffect, useRef, useState } from "react";
 import CourseCard from "./CourseCard";
 import styles from "./Courses.module.css";
 
 const Courses = () => {
-  const courses = [
-    {
-      image: "https://live.themewild.com/eduka/assets/img/course/01.jpg",
-      tag: "Drama",
-      title: "Acting And Drama",
-      description: "There are many variations of passages orem psum available but the majority have suffer alteration in some form by injected.",
-      lessons: 10,
-      seats: 75,
-      years: 4,
-      price: 750,
-      rating: 4.0,
-    },
-    {
-      image: "https://live.themewild.com/eduka/assets/img/course/02.jpg",
-      tag: "Design",
-      title: "Art And Design",
-      description: "There are many variations of passages orem psum available but the majority have suffer alteration in some form by injected.",
-      lessons: 10,
-      seats: 75,
-      years: 4,
-      price: 750,
-      rating: 4.0,
-    },
-    {
-      image: "https://live.themewild.com/eduka/assets/img/course/03.jpg",
-      tag: "Science",
-      title: "Biology And Conservation",
-      description: "There are many variations of passages orem psum available but the majority have suffer alteration in some form by injected.",
-      lessons: 10,
-      seats: 75,
-      years: 4,
-      price: 750,
-      rating: 4.0,
-    },
-    {
-      image: "https://live.themewild.com/eduka/assets/img/course/04.jpg",
-      tag: "Science",
-      title: "Science And Engineering",
-      description: "There are many variations of passages orem psum available but the majority have suffer alteration in some form by injected.",
-      lessons: 10,
-      seats: 75,
-      years: 4,
-      price: 750,
-      rating: 4.0,
-    },
-    {
-      image: "https://live.themewild.com/eduka/assets/img/course/05.jpg",
-      tag: "Health",
-      title: "Health Administration",
-      description: "There are many variations of passages orem psum available but the majority have suffer alteration in some form by injected.",
-      lessons: 10,
-      seats: 75,
-      years: 4,
-      price: 750,
-      rating: 4.0,
-    },
-    {
-      image: "https://live.themewild.com/eduka/assets/img/course/01.jpg",
-      tag: "Finance",
-      title: "Accounting And Finance",
-      description: "There are many variations of passages orem psum available but the majority have suffer alteration in some form by injected.",
-      lessons: 10,
-      seats: 75,
-      years: 4,
-      price: 750,
-      rating: 4.0,
-    },
-  ];
+  const [courses, setCourses] = useState([]);
+  const cardsRef = useRef([]);
 
-  
+  // ⭐ Fetch courses from backend
+  const fetchCourses = async () => {
+    try {
+      const res = await fetch("http://localhost:8000/api/courses/all");
+      const data = await res.json();
+
+      // ⭐ FIX: Ensure data is always an array
+      if (Array.isArray(data)) {
+        setCourses(data);
+      } else if (Array.isArray(data.data)) {
+        setCourses(data.data);
+      } else {
+        console.error("Invalid API response:", data);
+        setCourses([]); // prevent crash
+      }
+    } catch (error) {
+      console.error("Failed to load courses:", error);
+      setCourses([]); // prevent crash
+    }
+  };
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  // ⭐ Scroll Animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.showCard);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardsRef.current.forEach((card) => card && observer.observe(card));
+  }, [courses]);
+
+  // ⭐ 3D Hover Animation
+  const handleMouseMove = (e, index) => {
+    const card = cardsRef.current[index];
+    if (!card) return;
+
+    let rect = card.getBoundingClientRect();
+    let x = e.clientX - rect.left - rect.width / 2;
+    let y = e.clientY - rect.top - rect.height / 2;
+
+    card.style.transform = `rotateY(${x / 25}deg) rotateX(${-y / 25}deg)`;
+  };
+
+  const resetCard = (index) => {
+    const card = cardsRef.current[index];
+    if (!card) return;
+    card.style.transform = "rotateY(0deg) rotateX(0deg)";
+  };
 
   return (
     <div className={styles.courses}>
       <h2 className={styles.heading}>
-      <i className="fas fa-book-open-reader"></i>Our Courses</h2>
+        <i className="fas fa-book-open-reader"></i> Our Courses
+      </h2>
+
       <p className={styles.subtitle}>
         It is a long established fact that a reader will be distracted.
       </p>
+
       <div className={styles.grid}>
-        {courses.map((course, index) => (
-          <CourseCard key={index} {...course} />
-        ))}
+        {courses.length === 0 ? (
+          <p>No Courses Found</p>
+        ) : (
+          courses.map((course, index) => (
+            <div
+              key={course._id || index}
+              ref={(el) => (cardsRef.current[index] = el)}
+              className={styles.cardWrapper}
+              onMouseMove={(e) => handleMouseMove(e, index)}
+              onMouseLeave={() => resetCard(index)}
+            >
+              <CourseCard {...course} />
+            </div>
+          ))
+        )}
       </div>
-
-      
-
     </div>
   );
 };

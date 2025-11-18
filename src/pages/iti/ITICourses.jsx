@@ -1,121 +1,86 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import styles from "./ITICourses.module.css";
 
 // eslint-disable-next-line react/prop-types
 const ITICourses = ({ onClose }) => {
+  const [programs, setPrograms] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch ITI Programs from backend
+  const fetchITIPrograms = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/iti-api/getprogram");
+      setPrograms(res.data.programs || []);
+    } catch (error) {
+      console.error("Error fetching ITI programs:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchITIPrograms();
+  }, []);
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
         <button className={styles.closeButton} onClick={onClose}>
           Close
         </button>
+
         <h2>ITI Courses</h2>
 
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Course Name</th>
-              <th>Duration</th>
-              <th>Eligibility</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Electrician</td>
-              <td>2 Years</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Fitter</td>
-              <td>2 Years</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Welder</td>
-              <td>1 Year</td>
-              <td>8th Pass</td>
-            </tr>
-            <tr>
-              <td>Mechanic (Motor Vehicle)</td>
-              <td>2 Years</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Plumber</td>
-              <td>1 Year</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Carpenter</td>
-              <td>1 Year</td>
-              <td>8th Pass</td>
-            </tr>
-            <tr>
-              <td>Machinist</td>
-              <td>2 Years</td>
-              <td>10th Pass (Science & Math)</td>
-            </tr>
-            <tr>
-              <td>Computer Operator & Programming Assistant (COPA)</td>
-              <td>1 Year</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Electronic Mechanic</td>
-              <td>2 Years</td>
-              <td>10th Pass (Science & Math)</td>
-            </tr>
-            <tr>
-              <td>Refrigeration & Air Conditioning Mechanic</td>
-              <td>2 Years</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Diesel Mechanic</td>
-              <td>1 Year</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Turner</td>
-              <td>2 Years</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Instrument Mechanic</td>
-              <td>2 Years</td>
-              <td>10th Pass (Science & Math)</td>
-            </tr>
-            <tr>
-              <td>Wireman</td>
-              <td>2 Years</td>
-              <td>8th Pass</td>
-            </tr>
-            <tr>
-              <td>Surveyor</td>
-              <td>2 Years</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Painter (General)</td>
-              <td>2 Years</td>
-              <td>8th Pass</td>
-            </tr>
-            <tr>
-              <td>Tool & Die Maker</td>
-              <td>2 Years</td>
-              <td>10th Pass (Science & Math)</td>
-            </tr>
-            <tr>
-              <td>Health Sanitary Inspector</td>
-              <td>1 Year</td>
-              <td>10th Pass</td>
-            </tr>
-            <tr>
-              <td>Stenography (English/Hindi)</td>
-              <td>1 Year</td>
-              <td>10th Pass</td>
-            </tr>
-          </tbody>
-        </table>
+        {loading ? (
+          <p>Loading...</p>
+        ) : programs.length === 0 ? (
+          <p>No ITI programs found</p>
+        ) : (
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Program Name</th>
+                <th>Course Name</th>
+                <th>Duration</th>
+                <th>Eligibility</th>
+                <th>Syllabus</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {programs.map((program) =>
+                program.courses.map((course, index) => (
+                  <tr key={course._id || index}>
+                    {index === 0 ? (
+                      <td rowSpan={program.courses.length}>
+                        {program.programName}
+                      </td>
+                    ) : null}
+
+                    <td>{course.courseName}</td>
+                    <td>{course.duration}</td>
+                    <td>{course.eligibility}</td>
+
+                    <td>
+                      {course.hasSyllabusPdf ? (
+                        <a
+                          href={course.syllabusPdf}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          View
+                        </a>
+                      ) : (
+                        "No File"
+                      )}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

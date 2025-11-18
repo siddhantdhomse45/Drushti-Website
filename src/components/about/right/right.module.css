@@ -1,153 +1,14 @@
-/* 
-.container {
-  justify-content: space-between;
-  padding: 20px;
- 
-  box-sizing: border-box;
-  height: 50%;
-  
-  
-}
-
-.mainright {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
- max-width: 1200px;
- 
-  gap: 10px;
-  
-}
-
-.leftmain {
-  text-align: left;
-  font-size: 1.2rem;
-  color: #333;
-  width: 100%;
-  flex-direction: column;
-
-}
-
-.imageWrapper {
-  border-radius: 20px;
-  overflow: hidden;
-  transition: all 0.3s ease-out;
-  
-}
-
-.image1 {
-  max-width: 200px;
-  height: auto;
-  border-radius: 60px 60px 0 60px;
-  
-}
-
-.bottomBadge {
-  align-items: center;
-  justify-content: center;
-  background-color: #fda31b;
-  padding: 20px;
-  border-radius: 70px 70px 70px 0;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  gap: 30px;
-  width: 210px;
-  height: 100px;
-}
-
-
-.rightmain {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-}
-
-.imageWrapper1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.image2 {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px dashed #fda31b;
-  padding: 8px;
-}
-
-.image3 {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 0 60px 60px 60px;
-}
-
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .mainright {
-    flex-direction: column;
-    width: 100%;
-    gap: 20px;
-  }
-
-  .leftmain {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .imageWrapper {
-    margin-bottom: 20px;
-  }
-
-  .image1 {
-    width: 80%; 
-    height: auto;
-    border-radius: 60px 60px 0 60px;
-    max-width: 150px;
-  }
-
-  .bottomBadge {
-    font-size: 0.9rem;
-    padding: 10px;
-    gap: 10px;
-    width: 100%;
-    max-width: 210px;
-  }
-
-  .image2 {
-    width: 150px;  
-    height: 150px;
-  }
-
-  .image3 {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0 60px 60px 60px;
-  }
-} */
-
-
-
-
-
-
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* 3D Parallax Wrapper */
+.parallaxBox {
+  transition: transform 0.2s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .imageGrid {
@@ -155,17 +16,20 @@
   align-items: center;
   gap: 25px;
   position: relative;
+  transform-style: preserve-3d;
 }
 
 /* Main Image */
 .mainImageWrapper {
   position: relative;
+  transform: translateZ(40px);
 }
 
 .mainImage {
   width: 260px;
   border-radius: 60px 60px 0 60px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  transform: translateZ(50px);
 }
 
 /* Badge */
@@ -173,14 +37,15 @@
   position: absolute;
   bottom: -25px;
   left: -25px;
-   background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
+  background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
   color: #fff;
   font-weight: 700;
   font-size: 0.95rem;
   padding: 18px 25px;
   border-radius: 50px 50px 50px 0;
-  box-shadow: 0 6px 20px rgba(253, 163, 27, 0.4);
+  box-shadow: 0 12px 25px rgba(253, 163, 27, 0.4);
   animation: float 3s ease-in-out infinite;
+  transform: translateZ(120px);
 }
 
 /* Side Images */
@@ -188,6 +53,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  transform: translateZ(30px);
 }
 
 .sideImages img {
@@ -197,27 +63,22 @@
   border-radius: 50%;
   border: 3px dashed #0d6e46;
   padding: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .sideImages img:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) translateZ(40px);
 }
 
 /* Floating Badge Animation */
 @keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% { transform: translateZ(120px) translateY(0); }
+  50% { transform: translateZ(120px) translateY(-8px); }
+  100% { transform: translateZ(120px) translateY(0); }
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .imageGrid {
     flex-direction: column;

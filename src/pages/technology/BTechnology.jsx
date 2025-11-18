@@ -47,108 +47,88 @@
 
 
 
-
-
-import React from "react";
+import { useState, useEffect } from "react";
 import styles from "./BTechnology.module.css";
-
-const btechPrograms = [
-  {
-    program: "Mechanical Engineering",
-    duration: "4 Years",
-    semester: "8 Sem",
-    eligibility: "10 + 2 Passed with Physics, Chemistry & Mathematics",
-    // pdf: "https://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/B.Tech%20Mechanical%20Engineering%20Syllabus.pdf",
-  },
-  {
-    program: "Civil Engineering",
-    duration: "4 Years",
-    semester: "8 Sem",
-    eligibility: "10 + 2 Passed with Physics, Chemistry & Mathematics",
-    // pdf: "https://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/B.Tech%20Civil%20Engineering%20Syllabus.pdf",
-  },
-  {
-    program: "Electrical Engineering",
-    duration: "4 Years",
-    semester: "8 Sem",
-    eligibility: "10 + 2 Passed with Physics, Chemistry & Mathematics",
-    // pdf: "https://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/B.Tech%20Electrical%20Engineering%20Syllabus.pdf",
-  },
-  {
-    program: "Chemical Engineering",
-    duration: "4 Years",
-    semester: "8 Sem",
-    eligibility: "10 + 2 Passed with Physics, Chemistry & Mathematics",
-    // pdf: "https://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/B.Tech%20Chemical%20Engineering%20Syllabus.pdf",
-  },
-  {
-    program: "Computer Science Engineering",
-    duration: "4 Years",
-    semester: "8 Sem",
-    eligibility: "10 + 2 Passed with Physics, Chemistry & Mathematics",
-    // pdf: "https://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/B.Tech%20Computer%20Science%20Syllabus.pdf",
-  },
-  {
-    program: "Electronics & Telecommunication Engineering",
-    duration: "4 Years",
-    semester: "8 Sem",
-    eligibility: "10 + 2 Passed with Physics, Chemistry & Mathematics",
-    // pdf: "https://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/B.Tech%20Electronics%20%26%20Telecommunication%20Syllabus.pdf",
-  },
-  {
-    program: "Lateral Entry to 3rd Semester / 2nd Year (All Branches)",
-    duration: "3 Years",
-    semester: "6 Sem",
-    eligibility: "Diploma in Engineering / BSC (PCM)",
-    // pdf: "https://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/B.Tech%20Lateral%20Entry%20Syllabus.pdf",
-  },
-];
+import axios from "axios";
 
 const BTechnology = ({ onClose }) => {
+  const [programs, setPrograms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // 🔹 Fetch B.Tech programs from backend
+  const fetchPrograms = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/btech-api/getprogram");
+      setPrograms(res.data.programs || []);
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to fetch B.Tech programs");
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPrograms();
+  }, []);
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <div className={styles.headerRow}>
-          <h2>BACHELOR OF TECHNOLOGY (B-Tech)</h2>
-          <button className={styles.closeButton} onClick={onClose}>
-            Close
-          </button>
-        </div>
+        <button className={styles.closeButton} onClick={onClose}>
+          ✕
+        </button>
 
-        <div className={styles.tableWrapper}>
+        <h2 className={styles.heading}>B.Tech Engineering Courses</h2>
+
+        {loading ? (
+          <p className={styles.loading}>Loading programs...</p>
+        ) : error ? (
+          <p className={styles.error}>{error}</p>
+        ) : programs.length === 0 ? (
+          <p className={styles.noData}>No B.Tech programs found.</p>
+        ) : (
           <table className={styles.table}>
             <thead>
               <tr>
                 <th>Program</th>
+                <th>Course</th>
                 <th>Duration</th>
                 <th>Semester</th>
                 <th>Eligibility</th>
-                {/* <th>Download Syllabus</th> */}
+                <th>Syllabus</th>
               </tr>
             </thead>
             <tbody>
-              {btechPrograms.map((prog, idx) => (
-                <tr key={idx}>
-                  <td>{prog.program}</td>
-                  <td>{prog.duration}</td>
-                  <td>{prog.semester}</td>
-                  <td>{prog.eligibility}</td>
-                  {/* <td>
-                    <a
-                      href={prog.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.downloadButton}
-                      download
-                    >
-                      Download PDF
-                    </a>
-                  </td> */}
-                </tr>
-              ))}
+              {programs.map((program) =>
+                program.courses.map((course, index) => (
+                  <tr key={index}>
+                    <td>{program.programName}</td>
+                    <td>{course.courseName}</td>
+                    <td>{course.duration}</td>
+                    <td>{course.semester || "—"}</td>
+                    <td>{course.eligibility || "—"}</td>
+                    <td>
+                      {course.hasSyllabusPdf && course.syllabusPdf ? (
+                        <a
+                          href={`http://localhost:8000/${course.syllabusPdf}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.downloadButton}
+                        >
+                          View PDF
+                        </a>
+                      ) : (
+                        <span className={styles.noPdf}>Not Available</span>
+                      )}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
-        </div>
+        )}
       </div>
     </div>
   );

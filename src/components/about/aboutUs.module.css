@@ -1,510 +1,167 @@
-/* 
-.headingWrapper h2 {
-  font-size: 28px;
-  color: #333;
-  margin: 0;
-  font-weight: bold;
-}
-
-.headingWrapper h2 span {
-  color: #fda31b;
-  font-weight: bold;
-  
-}
-
-.headingWrapper strong {
-  color: #fda31b;
-  font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 18px;
-    font-weight: 700;
-    position: relative;
-    border-bottom: 2px solid var(--theme-color2);
-    font-size: 18px;
-}
-
-.fa-book-open-reader:before, .fa-book-reader:before {
-  content: "\f5da";
-}
-
-
-
-.headingWrapper p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
-}
-
-.services {
- display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid  rgba(0, 0, 0, 0.08);
-  padding-bottom: 20px;
-
-
- 
-}
-
-.service {
-  display: flex;
-  align-items: flex-start;
-  width: 250px;
-}
-
-.icon {
-  width: 150px; 
-  height: 150px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; 
-}
-
-
-.icon img {
-  width: 100%; 
-  height: auto; 
-  object-fit: contain; 
-}
-
-.service h3 {
-  font-size: 16px;
-  margin: 0;
-  color: #333;
-  font-weight: bold;
-  text-align: left;
-}
-
-.service p {
-  font-size: 14px;
-  color: #666;
-  margin:  0;
-}
-
-
-.stats {
- 
-  width: 200px;
-  
-  background-color:rgb(17, 110, 99, 0.09);
-  padding: 80px 20px;
-
-  font-size: 14px;
-  color: #666;
- 
-  margin-left: 280px;
-  position: absolute;
-  margin-top: 230px;
-  border-radius: 20px;
-  height: 250px;
-  
-}
-
-.stats p {
-  font: 14px;
-  text-align: justify;
-  
-}
-
-.statContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: auto;
- 
-  font-size: 30px;
-  color: #116e63;
-  position: absolute;
-  margin-left: 50px;
-}
-
-.statContainer i {
-  font-size: 70px; 
-}
-
-.statContainer:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
-
-
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  padding-bottom: 30px;
- 
-}
-
-.discoverMore {
-  background-color: #fda31b;
-  border: none;
-  padding: 12px 25px;
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.callNow {
-  font-size: 1rem;
-  color: #333;
-  font-weight: bold;
+/* ============================
+   Main Section
+============================ */
+.aboutSection {
   display: flex;
   align-items: center;
-  gap: 8px;
-  border-radius: 20px;
-  
+  gap: 60px;
+  padding: 80px 100px;
+  background: linear-gradient(135deg, #fdfdfd 0%, #eef5f1 100%);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s ease;
 }
 
-.callNow span {
-  color: #22a35f;
-  font-weight: bold;
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
-
-
-.main {
-  display: flex; 
-  gap: 20px; 
-  margin: 0 200px; 
-  align-items: stretch; 
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
 }
 
-.left, .right {
-  flex: 0 0 45%; 
-  padding: 20px;
+.left, .right, .headingWrapper, .serviceCard, .quoteBox, .actions {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
 }
 
-.right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 15px;
-  height: auto; 
+.left.show, .right.show, .headingWrapper.show,
+.serviceCard.show, .quoteBox.show, .actions.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.left {
-  padding: 20px;
-}
-
-  .right .service {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .right .service h3 {
-    font-size: 18px;
-    color: #fda31b;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  .right .service p {
-    font-size: 14px;
-    color: #666;
-  }
-
-  .right .stat {
-    font-size: 14px;
-    color: #666;
-    background-color: #f4f4f4;
-    padding: 15px 20px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .right .stat .statNumber {
-    font-size: 2.5rem;
-    color: #22a35f;
-    font-weight: bold;
-  }
-
-  .right .callNow {
-    text-align: center;
-    padding: 10px;
-    background-color: #fda31b;
-    color: white;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  @media (max-width: 768px) {
-    .main {
-      flex-direction: column; 
-      margin: 0 20px; 
-    }
-  
-    .left,
-    .right {
-      flex: 0 0 100%;
-      padding: 10px; 
-    }
-  
-    .stats {
-      width: 100%; 
-      margin-left: 0;
-      position: relative;
-      margin-top: 20px;
-      height: auto;
-      padding: 40px 20px; 
-    }
-  
-    .statContainer {
-      width: 100%; 
-      margin-left: 0;
-      font-size: 50px; 
-    }
-  
-    .icon {
-      width: 100px;
-      height: 100px; 
-    }
-  
-    .service {
-      width: 100%; 
-      margin-bottom: 15px; 
-    }
-  
-    .service h3 {
-      font-size: 18px; 
-    }
-  
-    .service p {
-      font-size: 12px;
-    }
-  
-    .actions {
-      flex-direction: column; 
-      align-items: center;
-      margin-top: 20px;
-    }
-  
-    .discoverMore {
-      margin-bottom: 10px; 
-    }
-  
-    .callNow {
-      margin-top: 10px;
-    }
-  } */
-
-
-
-
-  .aboutSection {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 50px;
-  padding: 80px 120px;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  overflow: hidden;
-}
-
-/* ==== LEFT SIDE ==== */
-.left {
-  flex: 1;
-}
-
-/* ==== RIGHT SIDE ==== */
+/* ============================
+   Right Side Content
+============================ */
 .right {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  color: #333;
 }
 
-/* ==== HEADING ==== */
+/* ------- Heading -------- */
 .headingWrapper strong {
   color: #0d6e46;
-  text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 700;
-  font-size: 16px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.headingWrapper strong i {
-  margin-right: 8px;
 }
 
 .headingWrapper h2 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  color: #222;
-  margin-bottom: 12px;
-  position: relative;
+   color: #0d6e46;
 }
 
 .headingWrapper h2 span {
   color: #0d6e46;
-  position: relative;
 }
 
-.headingWrapper p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-/* ==== SERVICES ==== */
+/* ============================
+   Services (Glass Cards)
+============================ */
 .services {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .serviceCard {
   display: flex;
-  align-items: center;
   gap: 20px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
 }
 
 .serviceCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(253, 163, 27, 0.25);
+  transform: translateY(-6px) scale(1.02);
 }
 
+/* ============================
+   Icons
+============================ */
 .icon {
+  width: 75px;
+  height: 75px;
   background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
-  width: 80px;
-  height: 80px;
-  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 20px;
 }
 
 .icon img {
-  width: 45px;
-  height: 45px;
+  width: 40px;
   filter: brightness(0) invert(1);
 }
 
-.serviceCard h3 {
-  font-size: 1.1rem;
-  color: #222;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.serviceCard p {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* ==== QUOTE BOX ==== */
+/* ============================
+   Quote Box
+============================ */
 .quoteBox {
-  position: relative;
-  background: rgba(17, 110, 99, 0.1);
-  padding: 35px 25px;
+  padding: 35px;
+  background: rgba(17, 110, 99, 0.12);
   border-radius: 20px;
-  color: #444;
-  font-style: italic;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  margin-top: 10px;
-  overflow: hidden;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.quoteBox:hover {
+  transform: scale(1.02);
 }
 
 .quoteBox i {
-  font-size: 50px;
-  color: #116e63;
   position: absolute;
-  top: 10px;
   right: 20px;
-  opacity: 0.2;
+  top: 10px;
+  opacity: 0.18;
+  font-size: 50px;
 }
 
-/* ==== ACTIONS ==== */
+/* ============================
+   Buttons + Call
+============================ */
 .actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 25px;
-  flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
 }
 
 .discoverMore {
   background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
-  border: none;
   padding: 14px 35px;
-  color: #fff;
   border-radius: 50px;
-  font-weight: 600;
+  color: #fff;
   cursor: pointer;
-  transition: all 0.3s ease;
+  border: none;
+  font-weight: 700;
+  transition: 0.3s ease;
 }
 
 .discoverMore:hover {
-  background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(253, 163, 27, 0.4);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
 
-.callNow {
-  font-size: 1rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #333;
-}
-
-.callNow i {
-  color: #0d6e46;
-  font-size: 1.4rem;
-}
-
-.callNow span {
-  color: #22a35f;
-  font-weight: 700;
-}
-
-/* ==== RESPONSIVE ==== */
+/* ============================
+   Responsive
+============================ */
 @media (max-width: 992px) {
   .aboutSection {
     flex-direction: column;
-    padding: 60px 40px;
+    padding: 50px 30px;
   }
 
   .headingWrapper h2 {
-    font-size: 1.8rem;
-  }
-
-  .services {
-    flex-direction: column;
-  }
-
-  .quoteBox {
-    margin-top: 20px;
-  }
-
-  .actions {
-    flex-direction: column;
-    align-items: flex-start;
+    font-size: 2rem;
   }
 }

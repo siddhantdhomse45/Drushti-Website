@@ -273,3 +273,56 @@
     gap: 10px;
   }
 }
+
+
+
+/* === LOGO IN BRAND SECTION === */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.logoImage {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+  /* background: rgba(255, 255, 255, 0.1); */
+  padding: 6px;
+  /* box-shadow: 0 0 10px rgba(255, 204, 0, 0.3); */
+}
+
+.logoText {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffcc00;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+}
+
+.logoText::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 45px;
+  height: 3px;
+  background: linear-gradient(135deg, #ffcc00, #1dd286);
+  border-radius: 2px;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .logoContainer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .logoText::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

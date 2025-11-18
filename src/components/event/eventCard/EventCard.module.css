@@ -1,0 +1,491 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap");
+
+.services {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.servicesContainer {
+  position: relative;
+  display: flex;
+  margin-top: 80px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.leftContent {
+  margin-left: 5%;
+  max-width: 400px;
+}
+
+.leftContent div {
+  font-family: "Imperial Script", cursive;
+  font-style: regular;
+  font-weight: 400;
+  line-height: 140%;
+  font-size: 70px;
+  color: #c00a3a;
+}
+
+.leftContent h3 {
+  font-weight: 700;
+  font-size: 16px;
+  font-style: italic;
+  color: #2d2d2d;
+}
+
+.leftContent p {
+  font-size: 12px;
+  font-weight: 200;
+  list-style: paragraph spacing;
+  color: #2d2d2d;
+  font-style: italic;
+  line-height: calc(1em + 3px);
+}
+
+.rightContent {
+  position: absolute;
+  right: 0;
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-size: 120px;
+  font-style: regular;
+  color: #c00a3b46;
+  z-index: 0;
+}
+
+.upcoming, .services1 {
+  width: 94%;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+ .pastEvents {
+  width: 94%;
+  margin-top: 20px;
+}
+
+.upcomingEvents {
+  padding-top: 20px;
+  width: 94%;
+}
+
+.upcomingEvents h3,
+.pastEvents h3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.upcomingCard,
+.pastCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 3%;
+  justify-content: space-between;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cardContent {
+  display: flex;
+  width: 80%;
+  padding-bottom: 5%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardHeading {
+  padding-top: 15px;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2d2d2d;
+  line-height: 0;
+}
+
+.cardSub {
+  font-size: 12px;
+  font-weight: 200;
+  color: #2d2d2d;
+  line-height: calc(1em + 3px);
+}
+
+.dateButton {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.day {
+  font-size: 28px;
+}
+
+.day,
+.monthYear {
+  font-weight: 600;
+}
+
+.cardButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  background-color: #fffef7;
+  cursor: pointer;
+}
+
+.cardImg {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: 0% 0%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 5px;
+  clear: both; 
+}
+
+.pageBtn {
+  border: 2px solid #C00A3A;
+  background-color: transparent;
+  color: #C00A3A;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pageBtn:hover {
+  background-color: #C00A3A;
+  color: #fff;
+}
+
+.activePage {
+  background-color: #C00A3A;
+  color: #fff;
+}
+
+
+@media (max-width: 900px) {
+  .upcomingCard,
+  .pastCard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .upcomingCard,
+  .pastCard {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 500px) {
+  .cardHeading {
+    font-size: 18px;
+  }
+  .cardSub {
+    font-size: 16px;
+  }
+  .upcomingCard,
+  .pastCard {
+    grid-template-columns: 1fr; 
+  }
+  .rightContent {
+    display: none;
+  }
+} */
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap");
+
+.services {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.servicesContainer {
+  position: relative;
+  display: flex;
+  margin-top: 80px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* ✅ allow wrapping on smaller screens */
+}
+
+.leftContent {
+  margin-left: 5%;
+  max-width: 400px;
+}
+
+.leftContent div {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  line-height: 140%;
+  font-size: 70px;
+  color: #c00a3a;
+}
+
+.leftContent h3 {
+  font-weight: 700;
+  font-size: 16px;
+  font-style: italic;
+  color: #2d2d2d;
+}
+
+.leftContent p {
+  font-size: 12px;
+  font-weight: 200;
+  color: #2d2d2d;
+  font-style: italic;
+  line-height: calc(1em + 3px);
+}
+
+.rightContent {
+  position: absolute;
+  right: 0;
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-size: 120px;
+  color: #c00a3b46;
+  z-index: 0;
+}
+
+.upcoming,
+.services1,
+.pastEvents,
+.upcomingEvents {
+  width: 94%;
+  margin: 20px auto;
+}
+
+.upcomingEvents h3,
+.pastEvents h3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.upcomingCard,
+.pastCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  background: #fff;
+}
+
+.cardContent {
+  display: flex;
+  width: 90%;
+  padding: 10px 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardHeading {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d2d2d;
+}
+
+.cardSub {
+  font-size: 12px;
+  font-weight: 300;
+  color: #2d2d2d;
+  line-height: calc(1em + 3px);
+}
+
+.dateButton {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.day {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.monthYear {
+  font-weight: 600;
+}
+
+.cardButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  background-color: #fffef7;
+  cursor: pointer;
+}
+
+.cardImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 5px;
+}
+
+.pageBtn {
+  border: 2px solid #c00a3a;
+  background-color: transparent;
+  color: #c00a3a;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pageBtn:hover {
+  background-color: #c00a3a;
+  color: #fff;
+}
+
+.activePage {
+  background-color: #c00a3a;
+  color: #fff;
+}
+
+/* ✅ RESPONSIVE BREAKPOINTS */
+@media (max-width: 1200px) {
+  .upcomingCard,
+  .pastCard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .leftContent div {
+    font-size: 55px;
+  }
+}
+
+@media (max-width: 900px) {
+  .upcomingCard,
+  .pastCard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .leftContent div {
+    font-size: 45px;
+  }
+
+  .rightContent {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .servicesContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .leftContent {
+    margin: 0;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .leftContent div {
+    font-size: 36px;
+  }
+
+  .leftContent h3 {
+    font-size: 14px;
+  }
+
+  .leftContent p {
+    font-size: 12px;
+  }
+
+  .upcomingCard,
+  .pastCard {
+    grid-template-columns: 1fr; /* ✅ single column on mobile */
+  }
+
+  .rightContent {
+    display: none; /* hide background script text */
+  }
+
+  .cardImg {
+    height: 180px;
+  }
+
+  .cardHeading {
+    font-size: 16px;
+  }
+
+  .cardSub {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .leftContent div {
+    font-size: 28px;
+  }
+
+  .cardImg {
+    height: 150px;
+  }
+
+  .day {
+    font-size: 22px;
+  }
+}

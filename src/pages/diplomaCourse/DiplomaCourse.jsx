@@ -122,12 +122,60 @@
 
 
 
-
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "./DiplomaCourse.module.css";
 
 // eslint-disable-next-line react/prop-types
 const DiplomaCourse = ({ onClose }) => {
+  const [programs, setPrograms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch diploma programs from backend
+  const fetchPrograms = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/diplomaCourse-api/getprogram"); // update your backend URL
+      if (res.data.success) {
+        setPrograms(res.data.programs);
+      } else {
+        setError("Failed to fetch programs");
+      }
+    } catch (err) {
+      console.error("Error fetching diploma programs:", err);
+      setError("Server error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPrograms();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className={styles.modalOverlay}>
+        <div className={styles.modalContent}>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={styles.modalOverlay}>
+        <div className={styles.modalContent}>
+          <p>{error}</p>
+          <button onClick={onClose} className={styles.closeButton}>
+            ✕
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
@@ -146,292 +194,36 @@ const DiplomaCourse = ({ onClose }) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Computer Teacher Training</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://www.nielit.gov.in/content/ctt-course"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Syllabus
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Computer Application</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://ignou.ac.in/userfiles/DCA%20Syllabus.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Business Management</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://sgbau.ac.in/syllabus/pdf/Commerce/Diploma-Business-Management-2015.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Industrial Management</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://msbte.org.in/syllabus-search/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Syllabus
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Marketing Management</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://sgbau.ac.in/syllabus/pdf/Commerce/Diploma-Marketing-Management-2015.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Animation</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://ycmou.ac.in/media/post_image/Syllabus_for_Diploma_in_Animation.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>House Keeping</td>
-              <td>6 Months</td>
-              <td>HSC</td>
-              <td>
-                <a
-                  href="https://nchm.nic.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Course
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Financial Management</td>
-              <td>6 Months</td>
-              <td>HSC</td>
-              <td>
-                <a
-                  href="https://sgbau.ac.in/syllabus/pdf/Commerce/Diploma-Financial-Management-2015.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Fire Safety</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://nfscnagpur.nic.in/assets/docs/CourseSyllabus.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                   View PDF
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>Pre-primary Teacher Education</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://www.ncte.gov.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  Visit NCTE
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Montessori Teacher Education</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://www.nimtt.in/courses/montessori-teacher-training"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Course
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Hotel Management & Catering Technology</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://nchm.nic.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Syllabus
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Library Information Science</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://ignou.ac.in/userfiles/BLIS%20Syllabus.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Food & Nutrition</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://ignou.ac.in/userfiles/DFN_Syllabus.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>ICT Application in Library</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://nielit.gov.in/content/courses-offered"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Course
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Computer Literacy Program</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://nielit.gov.in/content/basic-computer-course-bcc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Course
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Disaster Management</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://nidm.gov.in/PDF/modules/Disaster_Management_Syllabus.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Industrial Safety</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://msbte.org.in/portal/curriculum-search/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View Syllabus
-                </a>
-              </td>
-            </tr>
+            {programs.length === 0 && (
+              <tr>
+                <td colSpan="4" style={{ textAlign: "center" }}>
+                  No programs available
+                </td>
+              </tr>
+            )}
+            {programs.map((program) => (
+              program.courses.map((course, index) => (
+                <tr key={`${program._id}-${index}`}>
+                  <td>{program.programName}</td>
+                  <td>{course.duration || program.duration}</td>
+                  <td>{course.eligibility || program.eligibility}</td>
+                  <td>
+                    {course.syllabusPdf ? (
+                      <a
+                        href={`http://localhost:5000/${course.syllabusPdf}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.downloadButton}
+                      >
+                        View PDF
+                      </a>
+                    ) : (
+                      <span>N/A</span>
+                    )}
+                  </td>
+                </tr>
+              ))
+            ))}
           </tbody>
         </table>
       </div>

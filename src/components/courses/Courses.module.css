@@ -1,64 +1,119 @@
-/* Courses Section */
+/* MAIN WRAPPER */
 .courses {
   text-align: center;
   padding: 50px 20px;
   background-color: #f9f9f9;
 }
 
+/* Heading */
 .heading {
   color: #0d6e46;
-  font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 18px;
-    font-weight: 700;
-    position: relative;
-    /* border-bottom: 2px solid var(--theme-color2); */
-   
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 22px;
+  font-weight: 700;
 }
-
-.fa-book-open-reader:before, .fa-book-reader:before {
-  content: "\f5da";
-}
-
 
 .subtitle {
   font-size: 14px;
   color: #555;
   margin-bottom: 40px;
-  
 }
 
-/* Proper Margin and Gap in the Grid */
+/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with minimum size */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-content: center;
-  align-items: start;
-  margin: 0 auto; /* Center align grid */
-  max-width: 1200px; 
-  padding: 0 20px; /* Add equal padding to both sides */
+  max-width: 1200px;
+  margin: auto;
+  gap: 25px;
 }
 
+/* ----------------------------------
+   3D SCROLL IN ANIMATIONS
+----------------------------------- */
+
+/* Base for all cards */
+.card3D {
+  opacity: 0;
+  transform-style: preserve-3d;
+  transition: all 0.9s ease-out;
+}
+
+/* Enter from LEFT */
+.slideLeft {
+  transform: translateX(-140px) rotateY(25deg);
+}
+
+/* Enter from RIGHT */
+.slideRight {
+  transform: translateX(140px) rotateY(-25deg);
+}
+
+/* When visible */
+.cardShow {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+
+/* Hover effect */
+.card3D:hover {
+  transform: translateY(-10px) rotateX(6deg) rotateY(-6deg);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr; /* Stack items in a single column on mobile */
-    gap: 15px; /* Reduced gap between cards */
-    padding: 0 15px; /* Add smaller padding to avoid overflow */
-    margin: 0 auto; /* Center-align the grid */
+    grid-template-columns: 1fr;
   }
 
-  .courses {
-    padding: 40px 15px; /* Adjust top and bottom padding for smaller screens */
+  .slideLeft,
+  .slideRight {
+    transform: translateY(50px);
   }
+}
 
-  .heading {
-    font-size: 26px; /* Slightly smaller font size for mobile */
-    margin-bottom: 8px; /* Adjust spacing between heading and subtitle */
-  }
 
-  .subtitle {
-    font-size: 12px; /* Smaller font size for mobile */
-    margin-bottom: 30px; /* Adjust spacing for smaller screens */
-  }
+.courses {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+.heading {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* ⭐ Wrapper for 3D parallax */
+.cardWrapper {
+  perspective: 1200px;
+  transition: transform 0.2s ease-out;
+  opacity: 0; 
+  transform: translateY(40px);
+}
+
+/* ⭐ Scroll animation */
+.showCard {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease-out;
+}
+
+/* Smooth 3D animation */
+.cardWrapper:hover {
+  transition: transform 0.1s ease-out;
 }

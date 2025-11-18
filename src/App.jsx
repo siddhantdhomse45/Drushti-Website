@@ -22,8 +22,11 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./index.css";
 import SchoolPrograms from "./pages/school/SchoolPrograms";
 import ITICourses from "./pages/iti/ITICourses";
-import ResultForm from "./pages/result/ResultForm";
-import Gallery from "./pages/gallery/Gallery";
+// import ResultForm from "./pages/result/ResultForm";
+import EventPage from './pages/EventPage';
+import EventDetail from './components/event/eventDetail/EventDetail'
+// import EnquiryForm from "./pages/enquiry/EnquiryForm";
+
 
 function App() {
   // ✅ State to control popup visibility globally
@@ -49,17 +52,25 @@ function App() {
           <Route path="/programs/master" element={<MTechnology />} />
           <Route path="/programs/diplomacourse" element={<DiplomaCourse />} />
           <Route path="/programs/certificate" element={<Certificates />} />
-          <Route path="/programs/pgdiploma" element={<PGDiploma />} />
+          <Route path="/programs/pg-diploma" element={<PGDiploma />} />
           <Route path="/programs/school" element={<SchoolPrograms />} />
           <Route path="/programs/iti" element={<ITICourses />} />
-           <Route path="/result" element={<ResultForm />} />
-            <Route path="/photo" element={<Gallery />} />
+           {/* <Route path="/result" element={<ResultForm />} /> */}
+            {/* <Route path="/photo" element={<Gallery />} /> */}
+            <Route path="/event" element={<EventPage />} />
+        <Route path='/event/:id' element={<EventDetail/>}/>
+        {/* <Route path="/enquiry" element={<EnquiryForm />} /> */}
+        
+
         </Routes>
+     
 
         <Footer />
 
         {/* ✅ Global Help Desk with control */}
+        
         <HelpDesk setIsHelpOpen={setIsHelpOpen} />
+       
       </Router>
     </>
   );

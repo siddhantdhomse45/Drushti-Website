@@ -54,13 +54,41 @@
 // export default PGDiploma;
 
 
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "./PGDiploma.module.css";
 
 const PGDiploma = ({ onClose }) => {
+  const [programs, setPrograms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch PG Diploma programs from backend
+  useEffect(() => {
+    const fetchPrograms = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/pgdiploma/getprogram");
+        setPrograms(res.data.programs || []);
+      } catch (err) {
+        console.error("Error fetching programs:", err);
+        setError("Failed to fetch programs. Try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPrograms();
+  }, []);
+
+  if (loading) return <p>Loading PG Diploma programs...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeButton} onClick={onClose}>✕</button>
+        <button className={styles.closeButton} onClick={onClose}>
+          ✕
+        </button>
 
         <h2 className={styles.title}>POST GRADUATE DIPLOMA & CERTIFICATE COURSES</h2>
 
@@ -73,87 +101,36 @@ const PGDiploma = ({ onClose }) => {
               <th>Syllabus</th>
             </tr>
           </thead>
-
           <tbody>
-            <tr>
-              <td>PG Diploma in Material Management</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://unipune.ac.in/Syllabi_PDF/revised_2010/mang/PGDMLM.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>PG Diploma in English Language Teaching</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>PG Diploma in International Business</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="https://unipune.ac.in/university_files/Exam_Forms/Commerce/pgdiploma%20in%20international%20business.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>PG Diploma in Library Automation & Networking</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>PG Diploma in Sports Management</td>
-              <td>1 Year</td>
-              <td>Graduation</td>
-              <td>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.downloadButton}
-                >
-                  View PDF
-                </a>
-              </td>
-            </tr>
+            {programs.length === 0 ? (
+              <tr>
+                <td colSpan="4">No programs found.</td>
+              </tr>
+            ) : (
+              programs.map((program) =>
+                program.courses.map((course, index) => (
+                  <tr key={`${program._id}-${index}`}>
+                    <td>{program.programName}</td>
+                    <td>{course.duration}</td>
+                    <td>{course.eligibility}</td>
+                    <td>
+                      {course.syllabusPdf ? (
+                        <a
+                          href={`http://localhost:8000/${course.syllabusPdf}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.downloadButton}
+                        >
+                          View PDF
+                        </a>
+                      ) : (
+                        "N/A"
+                      )}
+                    </td>
+                  </tr>
+                ))
+              )
+            )}
           </tbody>
         </table>
       </div>

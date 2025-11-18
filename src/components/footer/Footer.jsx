@@ -8,6 +8,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import styles from "./Footer.module.css";
+import logo from "../../assets/logo.png"; 
 
 const Footer = () => {
   return (
@@ -15,7 +16,12 @@ const Footer = () => {
       <div className={styles.container3}>
         {/* Brand section */}
         <div className={styles.brand}>
-          <h2 className={styles.logo}>Drushti</h2>
+          {/* === LOGO + BRAND NAME === */}
+          <div className={styles.logoContainer}>
+              <img src={logo} alt="Drushti Logo" className={styles.logoImage} />
+            
+          </div>
+
           <p className={styles.description}>
             We are many variations of passages available but the majority have
             suffered alteration in some form by injected humour words
@@ -24,7 +30,8 @@ const Footer = () => {
 
           <div className={styles.contact}>
             <p>
-              <FaPhoneAlt className={styles.icon} /> <span>+2 123 654 7898</span>
+              <FaPhoneAlt className={styles.icon} />{" "}
+              <span>+2 123 654 7898</span>
             </p>
             <p>
               <FaMapMarkerAlt className={styles.icon} />{" "}
