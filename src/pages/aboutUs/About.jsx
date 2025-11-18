@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./About.module.css";
@@ -24,8 +22,8 @@ function About() {
     { name: "DIPLOMA COURSES", path: "/programs/diplomacourse" },
     { name: "CERTIFICATE COURSES", path: "/programs/certificate" },
     { name: "P. G. DIPLOMA COURSES", path: "/programs/pg-diploma" },
-     { name: "SCHOOL PROGRAMS", path: "/programs/school" },
-      { name: "I.T.I COURSES", path: "/programs/iti" },
+    { name: "SCHOOL PROGRAMS", path: "/programs/school" },
+    { name: "I.T.I COURSES", path: "/programs/iti" },
   ];
 
   return (
@@ -106,8 +104,7 @@ function About() {
         </div>
       </section>
 
-      {/* Vision Section */}
-      <section className={styles.sectionContainer}>
+      {/* <section className={styles.sectionContainer}>
         <div className={styles.sectionBox}>
           <div className={styles.imageSide}>
             <img
@@ -131,7 +128,6 @@ function About() {
         </div>
       </section>
 
-      {/* Mission Section */}
       <section className={`${styles.sectionContainer} ${styles.reverse}`}>
         <div className={styles.sectionBox}>
           <div className={styles.textSide}>
@@ -153,6 +149,49 @@ function About() {
             />
           </div>
         </div>
+      </section> */}
+
+      <section className={styles.vmContainer}>
+        <h2 className={styles.vmTitle}>Vision & Mission</h2>
+        <div className={styles.vmLine}></div>
+      </section>
+
+      {/* Vision Section */}
+      <section className={styles.vmSection}>
+        <h3 className={styles.vmHeading}>Vision</h3>
+        <ul className={styles.vmList}>
+         <li>
+              We believe that improving education is the key to the survival of
+              the human race. We envision a world where students become lifelong
+              learners and develop 21st-century skills.
+            </li>
+            <li>
+              It’s a world where innovation is the rule, not the exception —
+              where schools provide project-based learning, emotional growth,
+              and access to technology that empowers every learner.
+            </li>
+        </ul>
+      </section>
+
+      {/* Mission Section */}
+      <section className={styles.vmSection}>
+        <h3 className={styles.vmHeading}>Mission</h3>
+
+        <p className={styles.vmDescription}>
+          Developing human potential to serve the Nation
+        </p>
+
+        <ul className={styles.vmList}>
+           <li>
+              Education is the most powerful tool to transform the world. We aim
+              to create learning environments where students thrive, think
+              critically, and innovate.
+            </li>
+            <li>
+              Our mission is to empower educators and learners by providing
+              tools that foster creativity, curiosity, and lifelong learning.
+            </li>
+        </ul>
       </section>
 
       {/* Image Gallery */}

@@ -26,6 +26,8 @@ import ITICourses from "./pages/iti/ITICourses";
 import EventPage from './pages/EventPage';
 import EventDetail from './components/event/eventDetail/EventDetail'
 // import EnquiryForm from "./pages/enquiry/EnquiryForm";
+import WhatsAppFloat from "./components/whatsapp/WhatsAppFloat";
+import BroadcastBar from "./components/broadcast/BroadcastBar";
 
 
 function App() {
@@ -35,9 +37,12 @@ function App() {
   return (
     <>
       <Router>
+
+         <BroadcastBar />
         {/* Hide navbar when popup open */}
         {!isHelpOpen && <Navbar />}
-
+     
+      
         <ScrollTop />
 
         <Routes>
@@ -70,7 +75,7 @@ function App() {
         {/* ✅ Global Help Desk with control */}
         
         <HelpDesk setIsHelpOpen={setIsHelpOpen} />
-       
+       <WhatsAppFloat />
       </Router>
     </>
   );

@@ -302,3 +302,53 @@ color: #0d6e46;
     font-size: 16px;
   }
 }
+
+
+.vmContainer {
+  text-align: center;
+  margin-top: 60px;
+  
+}
+
+.vmTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #b50000;
+}
+
+.vmLine {
+  width: 60px;
+  height: 3px;
+  background-color: #007bff;
+  margin: 10px auto 30px;
+}
+
+.vmSection {
+  max-width: 1200px;   /* Controls clean width */
+  margin: 0 auto 40px auto; /* Center + bottom spacing */
+  padding: 0 20px;    /* Small side padding for mobile */
+}
+
+.vmHeading {
+  font-size: 24px;
+  color: #b50000;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.vmDescription {
+  font-size: 17px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.vmList {
+  margin-left: 20px;
+  color: #333;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.vmList li {
+  margin-bottom: 8px;
+}
