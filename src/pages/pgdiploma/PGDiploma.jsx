@@ -67,7 +67,7 @@ const PGDiploma = ({ onClose }) => {
   useEffect(() => {
     const fetchPrograms = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/pgdiploma/getprogram");
+        const res = await axios.get("https://drushti-website-backend-1.onrender.com/pgdiploma/getprogram");
         setPrograms(res.data.programs || []);
       } catch (err) {
         console.error("Error fetching programs:", err);
@@ -116,7 +116,7 @@ const PGDiploma = ({ onClose }) => {
                     <td>
                       {course.syllabusPdf ? (
                         <a
-                          href={`http://localhost:8000/${course.syllabusPdf}`}
+                          href={`https://drushti-website-backend-1.onrender.com/${course.syllabusPdf}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={styles.downloadButton}

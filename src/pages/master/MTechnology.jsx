@@ -53,7 +53,7 @@ const MTechnology = ({ onClose }) => {
 
   const fetchPrograms = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/mtech-api/getprogram");
+      const res = await axios.get("https://drushti-website-backend-1.onrender.com/mtech-api/getprogram");
       setPrograms(res.data.programs || []);
     } catch (err) {
       console.error(err);
@@ -101,7 +101,7 @@ const MTechnology = ({ onClose }) => {
                     <td>
                       {course.hasSyllabusPdf && course.syllabusPdf ? (
                         <a
-                          href={`http://localhost:8000/${course.syllabusPdf}`}
+                          href={`https://drushti-website-backend-1.onrender.com/${course.syllabusPdf}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={styles.downloadButton}

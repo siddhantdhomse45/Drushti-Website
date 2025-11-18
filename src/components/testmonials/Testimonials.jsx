@@ -129,7 +129,7 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/testimonial/");
+        const res = await axios.get("https://drushti-website-backend-1.onrender.com/api/testimonial/");
         setTestimonials(res.data.data || []);
       } catch (err) {
         console.error(err);

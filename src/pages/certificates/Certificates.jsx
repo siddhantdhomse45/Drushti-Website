@@ -171,7 +171,7 @@ const Certificates = ({ onClose }) => {
   // Fetch certificate courses from backend
   const fetchPrograms = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/certificate/getprogram"); // Update backend URL
+      const res = await axios.get("https://drushti-website-backend-1.onrender.com/certificate/getprogram"); // Update backend URL
       if (res.data.success) {
         setPrograms(res.data.programs);
       } else {

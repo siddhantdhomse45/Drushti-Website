@@ -85,7 +85,7 @@ const SchoolPrograms = ({ onClose }) => {
   // 🔹 Fetch School Programs from backend
   const fetchPrograms = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/schoolprogram/getprogram");
+      const res = await axios.get("https://drushti-website-backend-1.onrender.com/schoolprogram/getprogram");
 
       // ✅ Handle both possible backend formats
       const data = Array.isArray(res.data)

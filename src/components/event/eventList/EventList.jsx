@@ -12,7 +12,7 @@ const EventList = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/event');
+        const response = await axios.get('https://drushti-website-backend-1.onrender.com/api/event');
         let eventData = Array.isArray(response.data) ? response.data : [];
         setEvents(eventData);
       } catch (err) {

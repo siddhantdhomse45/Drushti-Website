@@ -260,7 +260,7 @@ const UnderGraduate = ({ onClose }) => {
 
   const fetchPrograms = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/program-api/getprograms");
+      const res = await axios.get("https://drushti-website-backend-1.onrender.com/program-api/getprograms");
 
       console.log("API Response:", res.data);
 

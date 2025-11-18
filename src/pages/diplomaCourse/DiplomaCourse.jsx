@@ -135,7 +135,7 @@ const DiplomaCourse = ({ onClose }) => {
   // Fetch diploma programs from backend
   const fetchPrograms = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/diplomaCourse-api/getprogram"); // update your backend URL
+      const res = await axios.get("https://drushti-website-backend-1.onrender.com/diplomaCourse-api/getprogram"); // update your backend URL
       if (res.data.success) {
         setPrograms(res.data.programs);
       } else {
@@ -210,7 +210,7 @@ const DiplomaCourse = ({ onClose }) => {
                   <td>
                     {course.syllabusPdf ? (
                       <a
-                        href={`http://localhost:5000/${course.syllabusPdf}`}
+                        href={`https://drushti-website-backend-1.onrender.com/${course.syllabusPdf}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.downloadButton}

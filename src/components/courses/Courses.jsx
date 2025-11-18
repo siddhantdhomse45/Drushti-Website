@@ -9,7 +9,7 @@ const Courses = () => {
   // ⭐ Fetch courses from backend
   const fetchCourses = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/courses/all");
+      const res = await fetch("https://drushti-website-backend-1.onrender.com/api/courses/all");
       const data = await res.json();
 
       // ⭐ FIX: Ensure data is always an array

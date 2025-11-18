@@ -167,7 +167,7 @@ const EventDetail = () => {
       ];
 
       try {
-        const response = await axios.get(`http://localhost:8000/api/event/${id}`);
+        const response = await axios.get(`https://drushti-website-backend-1.onrender.com/api/event/${id}`);
         const eventData = { ...response.data };
 
         // ✅ Ensure schedule exists

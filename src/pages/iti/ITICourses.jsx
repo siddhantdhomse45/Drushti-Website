@@ -10,7 +10,7 @@ const ITICourses = ({ onClose }) => {
   // Fetch ITI Programs from backend
   const fetchITIPrograms = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/iti-api/getprogram");
+      const res = await axios.get("https://drushti-website-backend-1.onrender.com/iti-api/getprogram");
       setPrograms(res.data.programs || []);
     } catch (error) {
       console.error("Error fetching ITI programs:", error);
