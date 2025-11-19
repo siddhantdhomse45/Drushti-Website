@@ -236,6 +236,7 @@ import { useState, useEffect } from "react";
 import styles from "./PostGraduate.module.css";
 import axios from "axios";
 
+// eslint-disable-next-line react/prop-types
 const PostGraduate = ({ onClose }) => {
   const [programs, setPrograms] = useState([]);
   const [loading, setLoading] = useState(true);
