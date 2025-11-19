@@ -105,7 +105,6 @@
 
 
 
-
 import {
   FaFacebookF,
   FaInstagram,
@@ -122,13 +121,13 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
+        
         <div className={styles.brand}>
           <img src={logo} alt="Logo" className={styles.logo} />
 
           <p className={styles.desc}>
-            We are many variations of passages available but the majority have
-            suffered alteration in some form by injected humour words
-            believable.
+            We are many variations of passages available but most have suffered
+            alteration in some form by injected humour.
           </p>
 
           <div className={styles.contact}>
@@ -164,10 +163,9 @@ const Footer = () => {
 
         <div className={styles.newsletter}>
           <h3>Newsletter</h3>
-          <p>Subscribe to our newsletter to get the latest updates.</p>
           <form>
             <input type="email" placeholder="Your Email" />
-            <button>Subscribe Now</button>
+            <button>Subscribe</button>
           </form>
         </div>
       </div>
