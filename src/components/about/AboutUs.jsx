@@ -37,7 +37,7 @@ const AboutUs = () => {
             Our <span>Education System</span> Inspires You More.
           </h2>
           <p>
-            At Eduka, we believe education is the foundation of innovation.
+            At Drushti, we believe education is the foundation of innovation.
             We provide world-class learning experiences that empower
             students to achieve their goals.
           </p>
