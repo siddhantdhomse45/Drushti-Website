@@ -1,299 +1,205 @@
-/* === FOOTER BASE === */
+/* MAIN FOOTER */
 .footer {
-  background: linear-gradient(135deg, #043d2b 0%, #0d6e46 50%, #1dd286 100%);
+  background: linear-gradient(135deg, #043d2b, #0d6e46, #1dd286);
   color: #eaf7ef;
-  padding: 70px 140px 30px;
+  padding: 70px 40px 35px;
   font-family: "Poppins", sans-serif;
-  position: relative;
-  overflow: hidden;
-}
-
-.footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 70%);
-  pointer-events: none;
+  box-sizing: border-box;
 }
 
-/* === FLEX CONTAINER === */
-.container3 {
+/* WRAPPER – 4 Columns */
+.wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 50px;
-  position: relative;
-  z-index: 1;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: auto;
 }
 
-/* === BRAND SECTION === */
+/* BRAND Section */
 .brand {
-  flex: 1.5;
-  min-width: 260px;
+  flex: 1 1 280px;
+  max-width: 340px;
 }
 
-/* Logo */
-.logoContainer {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.desc {
+  font-size: 15px;
+  line-height: 1.7;
   margin-bottom: 18px;
 }
 
-.logoImage {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-  border-radius: 50%;
-  padding: 6px;
-}
-
-.logoText {
-  font-size: 32px;
-  font-weight: 800;
-  color: #ffcc00;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  position: relative;
-}
-
-.logoText::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 45px;
-  height: 3px;
-  background: linear-gradient(135deg, #ffcc00, #1dd286);
-  border-radius: 2px;
-}
-
-/* Description */
-.description {
-  margin: 15px 0 25px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #d1f0db;
-}
-
 .contact p {
-  font-size: 15px;
-  margin: 10px 0;
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #f4fff8;
+  gap: 10px;
+  margin: 7px 0;
+  font-size: 15px;
 }
 
-.contact span {
+/* COLUMNS */
+.col {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.col h3 {
   color: #ffcc00;
-  font-weight: 500;
-}
-
-/* === LINKS SECTION === */
-.links {
-  flex: 1;
-  min-width: 200px;
-}
-
-.links h3 {
   font-size: 18px;
-  color: #ffcc00;
   margin-bottom: 15px;
-  font-weight: 700;
 }
 
-.links ul {
+.col ul {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
-.links li {
+.col li {
+  padding: 7px 0;
   font-size: 15px;
-  margin: 10px 0;
-  color: #dff6e6;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.links li:hover {
-  color: #ffffff;
-  transform: translateX(6px);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+.col li:hover {
+  color: #fff;
+  transform: translateX(5px);
 }
 
-/* === NEWSLETTER SECTION === */
+/* NEWSLETTER */
 .newsletter {
-  flex: 1.5;
-  min-width: 300px;
+  flex: 1 1 280px;
+  max-width: 350px;
 }
 
 .newsletter h3 {
-  font-size: 18px;
   color: #ffcc00;
+  font-size: 18px;
   margin-bottom: 12px;
-  font-weight: 700;
 }
 
 .newsletter p {
-  font-size: 14px;
-  color: #d1f0db;
-  margin-bottom: 20px;
+  font-size: 15px;
+  margin-bottom: 15px;
 }
 
 .newsletter form {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  width: 100%;
+  flex-wrap: nowrap;
 }
 
-.input {
+.newsletter input {
   flex: 1;
-  padding: 12px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 12px;
   border-radius: 6px;
+  border: none;
   outline: none;
   font-size: 14px;
-  color: #043d2b;
-  background-color: #ffffff;
-  transition: 0.3s ease;
 }
 
-.input:focus {
-  border-color: #ffcc00;
-  box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
-}
-
-.button {
-  padding: 12px 25px;
-  background: linear-gradient(135deg, #ffcc00, #f8faff);
-  color: #043d2b;
-  font-weight: 700;
+.newsletter button {
+  padding: 12px 20px;
   border: none;
-  border-radius: 50px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffcc00, #fff8d1);
   cursor: pointer;
-  font-size: 14px;
-  transition: all 0.4s ease;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.button:hover {
-  background: linear-gradient(135deg, #ffffff, #ffcc00);
-  transform: translateY(-2px);
-}
-
-/* === BOTTOM SECTION === */
+/* BOTTOM BAR */
 .bottom {
-  margin-top: 50px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  color: #eaf7ef;
-  font-size: 14px;
-  position: relative;
+  gap: 15px;
+  text-align: center;
 }
 
-.socialIcons {
+.socials {
   display: flex;
   gap: 18px;
-  align-items: center;
+  justify-content: center;
 }
 
-.socialIcons i {
+.socials svg {
   font-size: 22px;
-  color: #ffffff;
-  transition: all 0.3s ease;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.socialIcons i:hover {
+.socials svg:hover {
   color: #ffcc00;
-  transform: scale(1.2);
+  transform: scale(1.18);
 }
 
-/* === RESPONSIVE MEDIA QUERIES === */
-
-/* --- Large tablets & small laptops (1024px) --- */
+/* RESPONSIVE TABLETS (1024px) */
 @media (max-width: 1024px) {
-  .footer {
-    padding: 60px 60px 30px;
+  .newsletter form {
+    flex-wrap: wrap;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 100%;
   }
 }
 
-/* --- Tablets (768px) --- */
+/* RESPONSIVE MOBILE (768px) */
 @media (max-width: 768px) {
-  .footer {
-    padding: 50px 25px 30px;
-  }
-
-  .container3 {
+  .wrapper {
     flex-direction: column;
-    align-items: center;
     text-align: center;
     gap: 40px;
   }
 
   .brand,
-  .links,
+  .col,
   .newsletter {
-    min-width: 100%;
-  }
-
-  .links li {
-    text-align: center;
+    max-width: 100%;
   }
 
   .newsletter form {
     flex-direction: column;
-    gap: 10px;
   }
 
-  .input,
-  .button {
+  .newsletter input,
+  .newsletter button {
     width: 100%;
-  }
-
-  .logoContainer {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .logoText::after {
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   .bottom {
     flex-direction: column;
-    text-align: center;
-    gap: 10px;
   }
 }
 
-/* --- Mobile (480px) --- */
+/* SMALL MOBILE (480px) */
 @media (max-width: 480px) {
-  .logoImage {
-    width: 120px;
-    height: 120px;
-  }
-
-  .logoText {
-    font-size: 26px;
-  }
-
   .footer {
     padding: 40px 20px;
   }
 
-  .socialIcons i {
-    font-size: 20px;
+  .logo {
+    width: 90px;
+    height: 90px;
   }
 
-  .button {
-    padding: 12px;
+  .socials svg {
+    font-size: 18px;
   }
 }
