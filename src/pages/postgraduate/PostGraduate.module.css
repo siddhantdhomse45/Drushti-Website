@@ -127,13 +127,19 @@ h2 {
 /* Responsive Styling */
 @media (max-width: 768px) {
   .modalContent {
-    padding: 15px;
-    max-width: 90%;
+    padding: 16px;
+    width: 92%;
+    max-height: 75vh;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    margin-bottom: 15px;
   }
 
   .closeButton {
-    padding: 3px 8px;
-    font-size: 12px;
+    padding: 4px 10px;
+    font-size: 13px;
   }
 
   .table-container {
@@ -142,21 +148,48 @@ h2 {
 
   .table th,
   .table td {
-    padding: 8px;
-    font-size: 14px;
+    padding: 7px;
+    font-size: 13px;
   }
 
-  h2 {
-    font-size: 1.5rem;
-  }
-
+  /* Fix long table layouts breaking */
   .table {
-    width: 100%;
     table-layout: fixed;
     word-wrap: break-word;
   }
 }
 
+/* Very Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .modalOverlay {
+    top: 0;
+    padding: 10px;
+  }
+
+  .modalContent {
+    padding: 12px;
+    max-height: 70vh;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .closeButton {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .table-container {
+    max-height: 45vh;
+  }
+}
 
 
 

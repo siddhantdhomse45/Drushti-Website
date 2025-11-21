@@ -171,3 +171,76 @@ h2 {
 .downloadButton:hover {
   background-color: #0056b3;
 }
+
+
+
+@media (max-width: 768px) {
+
+  .modalOverlay {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .modalContent {
+    max-width: 95%;
+    padding: 18px;
+  }
+
+  .table-container {
+    max-height: 55vh;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    font-size: 13.5px;
+  }
+
+  .closeButton {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+/* MOBILE 480px */
+@media (max-width: 480px) {
+
+  .modalOverlay {
+    padding: 5px;
+  }
+
+  .modalContent {
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .closeButton {
+    padding: 3px 7px;
+    font-size: 11px;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .table {
+    table-layout: fixed;
+    word-break: break-word;
+  }
+
+  .downloadButton {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
