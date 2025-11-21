@@ -124,70 +124,64 @@ h2 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Styling */
+
 @media (max-width: 768px) {
   .modalContent {
-    padding: 16px;
     width: 92%;
-    max-height: 75vh;
-  }
-
-  h2 {
-    font-size: 1.35rem;
-    margin-bottom: 15px;
+    padding: 18px;
+    max-height: 85vh;
   }
 
   .closeButton {
-    padding: 4px 10px;
-    font-size: 13px;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
   }
 
   .table-container {
-    max-height: 50vh;
+    max-height: 60vh;
   }
 
   .table th,
   .table td {
-    padding: 7px;
+    padding: 8px;
     font-size: 13px;
+    word-wrap: break-word;
   }
 
-  /* Fix long table layouts breaking */
   .table {
     table-layout: fixed;
-    word-wrap: break-word;
   }
 }
 
-/* Very Small Mobile (480px and below) */
+/* SMALL MOBILE */
 @media (max-width: 480px) {
-  .modalOverlay {
-    top: 0;
-    padding: 10px;
+  .modalContent {
+    width: 95%;
+    padding: 15px;
   }
 
-  .modalContent {
-    padding: 12px;
-    max-height: 70vh;
+  .closeButton {
+    padding: 4px 8px;
+    font-size: 11px;
   }
 
   h2 {
     font-size: 1.2rem;
   }
 
-  .closeButton {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-
-  .table th,
-  .table td {
-    padding: 6px;
+  .table th, .table td {
+    padding: 7px;
     font-size: 12px;
   }
 
   .table-container {
-    max-height: 45vh;
+    max-height: 55vh;
   }
 }
 
