@@ -132,3 +132,75 @@
     width: 300px;
   }
 }
+
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: auto;
+    margin-top: 60px;
+  }
+
+  .textBox {
+    padding: 30px 25px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .personImage {
+    width: 260px !important;
+  }
+
+  .heroContent {
+    padding: 30px 20px;
+  }
+
+  /* Disable heavy 3D effects on mobile (better performance) */
+  .tilt3d:hover {
+    transform: none;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .heroSection {
+    height: auto;
+  }
+
+  .textBox {
+    padding: 25px 18px;
+    border-radius: 10px;
+  }
+
+  .heading {
+    font-size: 1.7rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+  }
+
+  .description {
+    line-height: 1.6;
+  }
+
+  .learnButton {
+    width: 100%;
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+
+  .personImage {
+    width: 220px !important;
+  }
+}
