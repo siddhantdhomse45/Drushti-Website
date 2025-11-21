@@ -115,7 +115,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import styles from "./Footer.module.css";
-import logo from "../../assets/logo.png";
+import logo from "../../../public/assests/logo.png";
 
 const Footer = () => {
   return (

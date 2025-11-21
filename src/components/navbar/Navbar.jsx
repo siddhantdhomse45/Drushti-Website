@@ -88,7 +88,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./navbar.module.css";
-import logo from "../../assets/logo.png"; // Make sure logo.png exists here
+import logo from "../../../public/assests/logo.png"; // Make sure logo.png exists here
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
